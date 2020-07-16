@@ -12,6 +12,8 @@ class controlAutenticacion{
         if($respuesta){
             $objRoles = new detalleUsuario;
             $listRoles = $objRoles -> obtenerRoles($usuario);
+            session_start();
+            $_SESSION["user"] = $usuario; 
             $objPrincipal = new formMenuPrincipal;
             $objPrincipal -> formMenuPrincipalShow($listRoles);
         }

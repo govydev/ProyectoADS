@@ -12,7 +12,18 @@ class usuario{
 			return (1);
 		else
 			return(0);
+	}
+	
+	public function getAllUser(){
+        conexion::getConexion();
+		$consulta = "SELECT * FROM usuarios";
+		$resultado = mysql_query($consulta);
+		$num_registros = mysql_num_rows($resultado);
+		for($i = 0; $i < $num_registros; $i++)
+			$fila[$i] = mysql_fetch_array($resultado);
+		return ($fila);
     }
+
 
 }
 ?>

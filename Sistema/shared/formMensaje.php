@@ -28,10 +28,10 @@ class formMensaje{
                 <div class="registration-form">
                 <div class="full-width post-user-info" style="margin: 0 !important;">
                 <!--<i class="fa fa-user NavBar-Nav-icon" aria-hidden="true"></i>-->
-                <img src="../style/assets/img/user.png" class="NavBar-Nav-icon" alt="User">
+                <img src="../style/assets/img/alert.png" class="NavBar-Nav-icon" alt="User">
                 <p class="full-width"><small> <b><br><?=$mensaje?></b> </h1></small></p><br><br>
                 </div>
-                <div class="full-width list-group" style="border-radius: 0;">
+                <div class="full-width list-group" style="border-radius: 0;"><br><br>
                 <div class="list-group-item text-center">
                     <a href="<?=$ruta?>" class="list-group-item" id="categori-4">
                     <i class="fa fa-mail-reply" aria-hidden="true"></i> Volver a mostrar formulario</a>
