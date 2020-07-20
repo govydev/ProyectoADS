@@ -39,12 +39,13 @@ class formGestionUsuario{
         <i class="	fa fa-book" aria-hidden="true"></i>
         <div>Gestion de Usuarios </div>
         </div><br>
-        <label>Buscar : </label> <input type="text" name="busqueda"><br><br>
+        
+        <label>Buscar : </label> <input type="text" name="busqueda">
         <label for=""> Categotia:</label>
             <select name="" id="">
             <option value="">A</option>
             <option value="">e</option>
-            </select>
+            </select><br><br>
         <div class="full-width" style="padding: 15px; border: 1px solid #E1E1E1;">
             <table class="table table-condensed">
                 <thead>
