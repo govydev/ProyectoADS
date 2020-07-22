@@ -22,6 +22,13 @@ class controlGestionUsuario{
         
     }
 
+    public function iniciarBusquedaUsuario($usuario){
+        $objUsuario = new Usuario;
+        $listUser = $objUsuario -> getUser($usuario);
+        $objGestionUsuario = new formGestionUsuario;
+        $objGestionUsuario -> formGestionUsuarioShow($listUser);
+    }
+
 }
 
 ?>
