@@ -39,10 +39,6 @@ class formGestionUsuario{
         <i class="	fa fa-book" aria-hidden="true"></i>
         <div>Gestion de Usuarios </div>
         </div><br>
-<<<<<<< HEAD
-=======
-        <!--listo asi-->
-        <!--<label>Buscar : </label>-->
         <form action="getBotonGU.php" method="POST">
         <input type="text" name="txtBusqueda">
         <select name="" id="">
@@ -51,7 +47,6 @@ class formGestionUsuario{
         </select>
         <input type="submit" value="Buscar" name="btnAccion"><br><br>
         </form>
->>>>>>> bc0eb446d56da9c46d6e98ea3842d5fcedb0ee1b
         <div class="full-width" style="padding: 15px; border: 1px solid #E1E1E1;">
             <table class="table table-condensed">
                 <thead>
