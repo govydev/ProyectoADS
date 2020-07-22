@@ -1,6 +1,8 @@
 <?php
 include_once("../model/usuario.php");
+include_once("../model/roles.php");
 include_once("formGestionUsuario.php");
+include_once("formNuevoUsuario.php");
 
 class controlGestionUsuario{
 
@@ -11,6 +13,14 @@ class controlGestionUsuario{
         $objGestionUsuario -> formGestionUsuarioShow($listUser);
 
     } 
+
+    public function iniciarNuevosUsuario(){
+        $objRoles = new roles;
+        $listaRol = $objRoles -> getAllRoles();
+        $objNuevoUsuario =  new  formNuevoUsuario;
+        $objNuevoUsuario ->  formNuevoUsuarioShow($listaRol);
+        
+    }
 
 }
 

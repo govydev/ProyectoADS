@@ -51,7 +51,7 @@ class formGestionUsuario{
                         <th>Usuario</th>
                         <th>Contraseña</th>
                         <th>Estado</th>
-                        <th ><a hreg="">Nuevo</a></th>
+                        <th ><form action="getBotonGU.php" method="POST"><input type="submit" value="Nuevo" name="btnAccion"></form></th>
                     </tr>
                 </thead>
                 <tbody>
