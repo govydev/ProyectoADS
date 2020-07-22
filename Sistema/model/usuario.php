@@ -22,6 +22,16 @@ class usuario{
 		for($i = 0; $i < $num_registros; $i++)
 			$fila[$i] = mysql_fetch_array($resultado);
 		return ($fila);
+	}
+	
+	public function getUser($usuario){
+        conexion::getConexion();
+		$consulta = "SELECT * FROM usuarios WHERE login='$usuario'";
+		$resultado = mysql_query($consulta);
+		$num_registros = mysql_num_rows($resultado);
+		for($i = 0; $i < $num_registros; $i++)
+			$fila[$i] = mysql_fetch_array($resultado);
+		return ($fila);
     }
 
 

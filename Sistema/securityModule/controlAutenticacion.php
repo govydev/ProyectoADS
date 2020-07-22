@@ -9,11 +9,9 @@ class controlAutenticacion{
     public function validarUsuario($usuario, $password){
         $objUsuario = new usuario;
         $respuesta = $objUsuario -> verificarUsuario($usuario, $password);
-        if($respuesta){
+        if($respuesta == 1){
             $objRoles = new detalleUsuario;
             $listRoles = $objRoles -> obtenerRoles($usuario);
-            session_start();
-            $_SESSION["user"] = $usuario; 
             $objPrincipal = new formMenuPrincipal;
             $objPrincipal -> formMenuPrincipalShow($listRoles);
         }
