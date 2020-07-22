@@ -31,20 +31,21 @@ class formModificarUsuario{
         <p class="full-width"><small> <b>Modificar Usuario<br></b></h1></small></p><br><br>
         </div><br>
         <form>
+            ?><?foreach($user as $value)?>
                 <div class="form-group">
-                    <input class="form-control item" type="text" name="" maxlength="100" minlength="4"  id="" placeholder="Nombre" required>
+                    <input class="form-control item" type="text" name="" maxlength="100" minlength="4"  id="" placeholder="Nombre" value="<?=$value["nombre"]?>" required>
                 </div>
                 <div class="form-group">
-                    <input class="form-control item" type="text" name="" maxlength="100" minlength="4"  id="" placeholder="A.Paterno" required>
+                    <input class="form-control item" type="text" name="" maxlength="100" minlength="4"  id="" placeholder="A.Paterno" value="<?=$value["appaterno"]?>" required>
                 </div>
                 <div class="form-group">
-                    <input class="form-control item" type="text" name="" maxlength="100" minlength="4"  id="" placeholder="A.Materno" required>
+                    <input class="form-control item" type="text" name="" maxlength="100" minlength="4"  id="" placeholder="A.Materno" value="<?=$value["apmaterno"]?>" required>
                 </div>
                 <div class="form-group">
-                    <input class="form-control item" type="text" name="" maxlength="100" minlength="4"  id="" placeholder="Usuario" required>
+                    <input class="form-control item" type="text" name="" maxlength="100" minlength="4"  id="" placeholder="Usuario" value="<?=$value["login"]?>" required>
                 </div>
                 <div class="form-group">
-                    <input class="form-control item" type="text" name="" maxlength="100" minlength="4"  id="" placeholder="Contraseña" required>
+                    <input class="form-control item" type="text" name="" maxlength="100" minlength="4"  id="" placeholder="Contraseña" value="<?=$value["password"]?>" required>
                 </div>
                 <div class="form-group">
                     <label for="">Roles :</label><br>

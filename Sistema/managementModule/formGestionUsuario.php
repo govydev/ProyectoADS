@@ -39,7 +39,11 @@ class formGestionUsuario{
         <i class="	fa fa-book" aria-hidden="true"></i>
         <div>Gestion de Usuarios </div>
         </div><br>
-        <label>Buscar : </label> <input type="text" name="busqueda"><br><br>
+        <!--<label>Buscar : </label>-->
+        <form action="getBotonGU.php" method="POST">
+        <input type="text" name="txtBusqueda">
+        <input type="submit" value="Buscar" name="btnAccion"><br><br>
+        </form>
         <div class="full-width" style="padding: 15px; border: 1px solid #E1E1E1;">
             <table class="table table-condensed">
                 <thead>
@@ -69,7 +73,9 @@ class formGestionUsuario{
                                 else                    echo "Deshabilitado";
                                 ?></th>
                                 <td>
-                                    <a href="">Editar</a>
+                                <!--Tengo el incoveniente que tengo que pasar a getBotonGU el usuario, el boton y la accion,
+                                talves tengamos que cambiar ese etiqueta a por un boton-->
+                                    <a name="btnAccion" action="Modifcar" href="getBotonGU.php?=<?=$value["login"]?>">Editar</a>
                                 </td>
                             </tr>
                         <?}?>
