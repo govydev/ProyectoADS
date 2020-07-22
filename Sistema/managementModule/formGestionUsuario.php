@@ -73,7 +73,9 @@ class formGestionUsuario{
                                 else                    echo "Deshabilitado";
                                 ?></th>
                                 <td>
-                                    <a href="">Editar</a>
+                                <!--Tengo el incoveniente que tengo que pasar a getBotonGU el usuario, el boton y la accion,
+                                talves tengamos que cambiar ese etiqueta a por un boton-->
+                                    <a name="btnAccion" action="Modifcar" href="getBotonGU.php?=<?=$value["login"]?>">Editar</a>
                                 </td>
                             </tr>
                         <?}?>

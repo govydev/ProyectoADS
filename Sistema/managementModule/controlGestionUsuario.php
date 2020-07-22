@@ -29,6 +29,15 @@ class controlGestionUsuario{
         $objGestionUsuario -> formGestionUsuarioShow($listUser);
     }
 
+    public function iniciarModificarUsuario($usuario){
+        $objRoles = new roles;
+        $objUsuario = new Usuario;
+        $objModificarUsuario =  new  formModificarUsuario;
+        $listaRol = $objRoles -> getAllRoles();
+        $user = $objUsuario -> getUser($usuario);
+        $objModificarUsuario ->  formModificarUsuarioShow($user,$roles);
+    }
+
 }
 
 ?>

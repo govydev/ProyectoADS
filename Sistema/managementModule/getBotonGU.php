@@ -12,6 +12,8 @@ switch($_POST['btnAccion']){
 
     case "Modificar":
         //$objControl -> 
+        $usuario = $GET['login'];
+        $objControl -> iniciarModificarUsuario($usuario);
         break;
 
     case "Buscar":
