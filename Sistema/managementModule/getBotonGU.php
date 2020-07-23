@@ -11,19 +11,18 @@ switch($_POST['btnAccion']){
         break;
 
     case "Modificar":
-        //$objControl -> 
-        $usuario = $GET['login'];
+        $usuario = $_POST['login'];
         $objControl -> iniciarModificarUsuario($usuario);
         break;
 
     case "Buscar":
         if(trim($_POST['txtBusqueda'])){
             $usuario = $_POST['txtBusqueda'];
-            $objControl -> iniciarBusquedaUsuario($usuario);
+            $campo = $_POST['ddBusqueda'];
+            $objControl -> iniciarBusquedaUsuario($usuario,$campo);
         }else{
             $objMensaje -> formMensajeShow("LOS DATOS ENVIADOS NO SON CORRECTOS, VUELVA A INTENTAR","../managementModule/indexGestionUsuario.php");
         }
-        //$objControl -> 
         break;
 
 }
