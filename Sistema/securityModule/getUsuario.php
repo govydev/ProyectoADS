@@ -1,23 +1,21 @@
 <?php
+include_once("controlAutenticacion.php");
+include_once("../shared/formMensaje.php");
+    
+$objAutenticacion = new controlAutenticacion;
+$objMensaje = new formMensaje;
 
-$usuario = $_POST["txtUsuario"];
-$password = $_POST["txtPassword"];
-
-if(isset($_POST["btnLogin"])){
-    if(strlen($usuario) >= 4 && strlen($password) >= 4){
-        include_once("controlAutenticacion.php");
-        $objAutenticacion = new controlAutenticacion;
+if(isset($_POST['btnLogin'])){
+    $usuario = trim($_POST['txtUsuario']);
+    $password = trim($_POST['txtPassword']);
+    if(strlen($usuario) >= 4 && strlen($password) >= 4){ 
         $objAutenticacion -> validarUsuario($usuario, $password);
     }
     else{
-        include_once("../shared/formMensaje.php");
-        $objMensaje = new formMensaje;
         $objMensaje -> formMensajeShow("ERROR AL INGRESAR EL USUARIO Y CONTRASEÑA","../index.php");
     }
 }
 else{
-    include_once("../shared/formMensaje.php");
-    $objMensaje = new formMensaje;
     $objMensaje -> formMensajeShow("ACCESO DENEGADO","../index.php");
 }
 
