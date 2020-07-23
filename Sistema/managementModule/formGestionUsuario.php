@@ -28,7 +28,6 @@ class formGestionUsuario{
         </div>
         <div class="full-width list-group" style="border-radius: 0;">
         <div class="list-group-item text-center">
-        <a href="" class="list-group-item" id="categori-8">
         <form action="controlAutenticacion.php" method="POST">
         <i class="	fa fa-mail-reply-all" aria-hidden="true"></i>  Ir a menu principal</a>
         </form>
