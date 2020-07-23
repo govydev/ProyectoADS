@@ -22,7 +22,7 @@ class formMenuPrincipal{
                 <nav class=" full-width NavBar-Nav">
                     <ul class="list-unstyled full-width menu-mobile-c">
                         <li>
-                            <a href="" id="categori-8">
+                            <a href="../index.php" id="categori-8">
                                 <i class="fa fa-object-group fa-fw hidden-md hidden-lg"></i>Salir del sistema
                             </a>
                         </li>
