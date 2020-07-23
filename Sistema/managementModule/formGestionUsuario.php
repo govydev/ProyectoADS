@@ -23,13 +23,15 @@ class formGestionUsuario{
         <div class="col-xs-12 col-sm-4 col-md-3">
         <div class="full-width user-menu-xs">
         <div class="full-width post-user-info" style="margin: 0 !important;">
-        <img src="../style/assets/img/user.png" class="NavBar-Nav-icon" alt="User"><?session_start();?>
-        <p class="full-width"><small> <b>Administrador:<br><?=$_SESSION["user"]?></b> </h1></small></p><br><br>
+        <img src="../style/assets/img/user.png" class="NavBar-Nav-icon" alt="User"><?/*session_start();*/?>
+        <p class="full-width"><small> <b>Administrador:<br><?/*=$_SESSION["user"]*/?></b> </h1></small></p><br><br>
         </div>
         <div class="full-width list-group" style="border-radius: 0;">
         <div class="list-group-item text-center">
         <a href="" class="list-group-item" id="categori-8">
+        <form action="controlAutenticacion.php" method="POST">
         <i class="	fa fa-mail-reply-all" aria-hidden="true"></i>  Ir a menu principal</a>
+        </form>
         </div>
         </div>
         </div>
