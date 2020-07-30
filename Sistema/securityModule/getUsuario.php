@@ -15,7 +15,7 @@ if(isset($_POST['btnLogin'])){
         $objAutenticacion -> validarUsuario($usuario, $password);
     }
     else{
-        $objMensaje -> formMensajeShow("ERROR AL INGRESAR EL USUARIO Y CONTRASEÑA","../index.php");
+        $objMensaje -> formMensajeShow("LOS DATOS ENVIADOS NO SON CORRECTOS","../index.php");
     }
 }
 else{

@@ -7,7 +7,7 @@ class formAutenticacion{
         <!DOCTYPE html>
         <html lang="es">
         <head>
-            <title></title>
+            <title>Autenticacion</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
@@ -34,10 +34,10 @@ class formAutenticacion{
             </div>
                 <form action="securityModule/getUsuario.php" method="POST">
                     <div class="form-group">
-                        <input class="form-control item" type="text" name="txtUsuario" id="username" placeholder="Nombre de Usuario" required>
+                        <input class="form-control item" type="text" name="txtUsuario" id="username" placeholder="Nombre de Usuario">
                     </div>
                     <div class="form-group">
-                        <input class="form-control item" type="password" name="txtPassword" id="password" placeholder="Password" required>
+                        <input class="form-control item" type="password" name="txtPassword" id="password" placeholder="Password">
                     </div>
                     <div class="form-group">
                         <input class="btn btn-primary btn-block create-account" type="submit" name="btnLogin" value="LogIn">
