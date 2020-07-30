@@ -17,7 +17,7 @@ class controlAutenticacion{
         }
         else{
             $objMensaje = new formMensaje;
-            $objMensaje -> formMensajeShow("EL USUARIO INGRESADO NO SE ENCUENTRA REGISTRADO O ESTA DESHABILITADO","../index.php");
+            $objMensaje -> formMensajeShow("EL USUARIO NO EXISTE, EL PASSWORD ES INCORRECTO O EL USUARIO ESTA DESAHILITADO","../index.php");
         }
     }
 
