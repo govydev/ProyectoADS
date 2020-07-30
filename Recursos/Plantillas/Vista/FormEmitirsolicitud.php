@@ -48,7 +48,7 @@ include_once("Plantilla/cabezera.php");
                     <td></td>
                     <td></td>
 					<td>
-						<a href="">Editar</a>
+					<a href=""><button id="btnModificar">Editar</button></a>
 					</td>
                     <td>
 						<a href="" onclick="return confirm('¿Realmente quiere eliminar el dato?')">Eliminar</a>
@@ -56,6 +56,23 @@ include_once("Plantilla/cabezera.php");
 				</tr>
 		</tbody>
 	</table>
+	<script>
+		document.getElementById('btnModificar').addEventListener('click', function(){
+			while(true){	
+			let cantM = prompt('ingrese cantidad a modificar :');
+			if(!isNaN(cantM) && cantM!= null && cantM != ""){
+				alert('modificado correctamente');
+				break;
+			}else if(cantM== 'fin'){
+				break;
+			}else{
+				alert('ingrese cantidades enteras');
+				break;
+			}
+			break;
+		}
+  });
+	</script>
 </div>
 </div>
 </div>

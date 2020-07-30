@@ -40,7 +40,7 @@ include_once("Plantilla/cabezera.php");
                 <th>Categoria</th>
 				<th></th>
 				<th></th>
-				<th colspan="2">cantidad</th>
+				<th colspan="2">cantidad</button></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -53,11 +53,29 @@ include_once("Plantilla/cabezera.php");
 					<th></th>
 					<td><?= $fila[4] ?></td>
 					<td>
-						<a href="">Añadir</a>
+						<a href=""><button id="btnAñadir">Añadir</button></a>
 					</td>
 				</tr>
 		</tbody>
 	</table>
+	<script>
+		document.getElementById('btnAñadir').addEventListener('click', function(){
+			while(true){	
+			let cantidad = prompt('ingrese cantidad a añadir :');
+			if(!isNaN(cantidad) && cantidad!= null && cantidad != ""){
+				alert('ingreso correctamente');
+				break;
+			}else if(cantidad== 'fin'){
+				break;
+			}else{
+				alert('ingrese cantidades enteras');
+				break;
+			}
+			break;
+		}
+ 
+  });
+	</script>
 </div>
 </div>
 </div>
