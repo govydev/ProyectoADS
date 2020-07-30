@@ -19,7 +19,7 @@ include_once("Plantilla/cabezera.php");
 <i class="	fa fa-book" aria-hidden="true"></i>
 <div>Listado de Solicitudes </div>
 </div><br>
-<form>
+<form action="get.php" method="POST"> 
 <label> Solicitud :</label> <input type="text" name="" required >
 <i aria-hidden="true"></i><button>Buscar</button></a>
 </form>
@@ -40,7 +40,7 @@ include_once("Plantilla/cabezera.php");
 					<td><?= $fila[1] ?></td>
                     <td><?= $fila[2] ?></td>
 					<td>
-						<a href="">Ver</a>
+						<button class="btn btn-info" type="submit">Ver</button>
 					</td>
 				</tr>
 		</tbody>

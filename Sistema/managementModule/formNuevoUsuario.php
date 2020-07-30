@@ -29,7 +29,7 @@ class formNuevoUsuario{
         <div class="full-width post-user-info" style="margin: 0 !important;">
         <img src="../style/assets/img/user.png" class="NavBar-Nav-icon" alt="User">
         <p class="full-width"><small> <b>Nuevo Usuario<br></b></h1></small></p><br><br>
-        </div><br>
+        <br>
         <form action="getUsuarioGU.php" method="POST">
                 <div class="form-group">
                     <input class="form-control item" type="text" name="txtNombre"  id="" placeholder="Nombre" required>
@@ -85,6 +85,7 @@ class formNuevoUsuario{
                 <li><a href="#!">:)</a></li>
                 <li><a href="#!">WEB</a></li>
             </ul>
+        </div>
         </div>
         </div>
         </footer>

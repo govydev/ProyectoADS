@@ -10,13 +10,12 @@ include_once("Plantilla/cabezera.php");
 <img src="../assets/img/user.png" class="NavBar-Nav-icon" alt="User">
 <p class="full-width"><small> <b>Despachador :<br>Marcos Antonio</b> </h1></small></p><br><br>
 </div>
-<a href="" class="list-group-item"><p>
-<i aria-hidden="true"> Registro de Salida : xxxx</i></p>
-</a>
 <div class="full-width list-group" style="border-radius: 0;">
 <div class="list-group-item text-center">
-<a href="" class="list-group-item" id="categori-4">
-<i class="	fa fa-mail-reply" aria-hidden="true"></i> ir a menu Despachador</a>
+<form action="get.php" method="POST"> 
+<button href="" class="list-group-item" id="categori-4">
+<i class="fa fa-mail-reply" aria-hidden="true"></i>  ir a menu Despachador</button>
+</form>
 </div>
 </div>
 </div>
