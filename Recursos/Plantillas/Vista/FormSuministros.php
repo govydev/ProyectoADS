@@ -13,12 +13,16 @@ include_once("Plantilla/cabezera.php");
 </div>
 <div class="full-width list-group" style="border-radius: 0;">
 <div class="list-group-item text-center">
-<a href="" class="list-group-item" id="categori-4">
-<i class="fa fa-cogs fa-fw" aria-hidden="true"></i>  Emitir Solicitud</a>
+<form action="get.php" method="POST">
+<button type="" class="list-group-item" id="categori-4">
+<i class="fa fa-cogs fa-fw" aria-hidden="true"></i>  Emitir Solicitud</button>
+</form>
 </div>
 <div class="list-group-item text-center">
-<a href="" class="list-group-item" id="categori-8">
-<i class="	fa fa-mail-reply-all" aria-hidden="true"></i>  Ir a menu principal</a>
+<form action="get.php" method="POST">
+<button type="submit" class="list-group-item" id="categori-8">
+<i class="	fa fa-mail-reply-all" aria-hidden="true"></i>  Ir a menu principal</button>
+</form>
 </div>
 </div>
 </div>
@@ -26,9 +30,17 @@ include_once("Plantilla/cabezera.php");
 <div class="col-xs-12 col-sm-8 col-md-9">
 <div class="full-width bar-info-user">
 <i class="	fa fa-book" aria-hidden="true"></i>
-<div>Listado de Suministros </div>
+<div>Listado de Solicitudes</div>
 </div><br>
+<form action="get.php" method="POST">
 <label>Buscar : </label> <input type="text" name="busqueda">
+
+<select name="" id="">
+            <option value="">A</option>
+            <option value="">e</option>
+            </select>
+</form>
+<br>
 <!-- Contenido-->
 <div class="full-width" style="padding: 15px; border: 1px solid #E1E1E1;">
 	<table class="table table-condensed">
@@ -40,7 +52,7 @@ include_once("Plantilla/cabezera.php");
                 <th>Categoria</th>
 				<th></th>
 				<th></th>
-				<th colspan="2">cantidad</button></th>
+				<th colspan="2">cantidad</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -53,7 +65,9 @@ include_once("Plantilla/cabezera.php");
 					<th></th>
 					<td><?= $fila[4] ?></td>
 					<td>
-						<a href=""><button id="btnAñadir">Añadir</button></a>
+					<form action="" method="POST">
+						<button type="submit" class="btn btn-info" id="btnAñadir">Añadir</button>
+						<form action="get.php" method="POST">
 					</td>
 				</tr>
 		</tbody>

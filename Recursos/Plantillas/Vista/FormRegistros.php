@@ -12,8 +12,8 @@ include_once("Plantilla/cabezera.php");
 </div>
 <div class="full-width list-group" style="border-radius: 0;">
 <div class="list-group-item text-center">
-<a href="" class="list-group-item" id="categori-4">
-<i class="	fa fa-mail-reply" aria-hidden="true"></i> ir a menu Despachador</a>
+<button type="submit" class="btn btn-info" >
+<i class="	fa fa-mail-reply" aria-hidden="true"></i> ir a menu Despachador</button>
 </div>
 </div>
 </div>
@@ -41,7 +41,11 @@ include_once("Plantilla/cabezera.php");
 					<td></td>
                     <td></td>
                     <td></td>
-					<td>Ver</td>
+					<td>
+					<form action="get" method="post">
+					<center><button type="submit" class="btn btn-info">Nuevo</button></center>
+					</form>
+					</td>
 				</tr>
 		</tbody>
 	</table>

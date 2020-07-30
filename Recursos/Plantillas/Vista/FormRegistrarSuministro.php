@@ -15,13 +15,12 @@ include_once("Plantilla/cabezera.php");
 <!--<i class="fa fa-user NavBar-Nav-icon" aria-hidden="true"></i>-->
 <img src="../assets/img/user.png" class="NavBar-Nav-icon" alt="User">
 <p class="full-width"><small> <b>Almacener@:<br>Lisbeth</b></h1></small></p><br><br>
-</div><br>
-<form>
+<br>
 	    <div class="form-group">
             <input class="form-control item" type="text" name="" maxlength="100" minlength="4"  id="" placeholder="Nombre" required>
         </div>
         <div class="form-group">
-            <input class="form-control item" type="text" name=""  style="WIDTH: 360px; HEIGHT: 98px" maxlength="200" minlength="4" size=32  id="" placeholder="Detalle" required>
+            <input class="form-control item" type="text" name=""  style="WIDTH: 340px; HEIGHT: 98px" maxlength="200" minlength="4" size=32  id="" placeholder="Detalle" required>
         </div>
         <div class="form-group">
         <label for=""> Categotia:</label>
@@ -43,10 +42,11 @@ include_once("Plantilla/cabezera.php");
         <div class="form-group">
             <button class="btn btn-primary btn-block create-account" type="submit"> Registrar</button>
         </div>
-    </form>
-<div class="list-group-item text-center">
-<a href="" class="list-group-item" id="categori-2">
-<i class="fa fa-times-circle" aria-hidden="true"></i> Cancelar</a>
+        <div class="text-center">
+        <form action="get.php" method="POST">
+        <button type="submit" class="btn btn-info">
+        <i class="fa fa-times-circle" aria-hidden="true"></i> Cancelar</button>
+        </form>
 </div>
 </div>
 </div>

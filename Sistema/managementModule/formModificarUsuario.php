@@ -29,7 +29,7 @@ class formModificarUsuario{
         <div class="full-width post-user-info" style="margin: 0 !important;">
         <img src="../style/assets/img/user.png" class="NavBar-Nav-icon" alt="User">
         <p class="full-width"><small> <b>Modificar Usuario<br></b></h1></small></p><br><br>
-        </div><br>
+        <br>
         <form action="getUsuarioGU.php" method="POST">
             <?foreach($user as $value){?>
                 <div class="form-group">
@@ -87,6 +87,7 @@ class formModificarUsuario{
                 <li><a href="#!">:)</a></li>
                 <li><a href="#!">WEB</a></li>
             </ul>
+        </div>
         </div>
         </div>
         </footer>

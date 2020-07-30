@@ -10,21 +10,24 @@ include_once("Plantilla/cabezera.php");
 <img src="../assets/img/user.png" class="NavBar-Nav-icon" alt="User">
 <p class="full-width"><small> <b>Personal de Atencion:<br>Milton</b> </h1></small></p><br><br>
 </div>
+<form action="get.php" method="POST">
 <div class="full-width list-group" style="border-radius: 0;">
 <div class="list-group-item text-center">
-<a href="" class="list-group-item" id="categori-4" onclick="return confirm('¿dese continuar?')">
-<i class="fa fa-trash" aria-hidden="true"></i>  Eliminar Solicitud </a>
+<button type="submit"><a href="" class="list-group-item" id="categori-4" onclick="return confirm('¿dese continuar?')">
+<i class="fa fa-trash"></i>  Eliminar Solicitud </a></button>
 </div>
+</form>
 </div>
 </div>
 </div>
 <div class="col-xs-12 col-sm-8 col-md-9">
 <div class="full-width bar-info-user">
 <i class="	fa fa-book" aria-hidden="true"></i>
-<div>Listado de Suministros </div>
+<div>Listado de Solicitudes </div>
 </div><br>
 <form>
-<input type="text" name="busqueda" required >
+<input type="text"  placeholder="ingrese nombre" name="busnombre" required >
+<input type="text"  placeholder="ingrese dni" name="busdni" required >
 <i aria-hidden="true"></i><button>Emitir Solicitud</button> </a>
 </form>
 <!-- Contenido-->
