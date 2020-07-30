@@ -1,7 +1,7 @@
 <?php
 include_once("Plantilla/cabezera.php");
 ?>
-<!-- cuerpo lis -->
+<!-- cuerpo lis asdas -->
 <section class="full-width section">
 <div class="container">
 <div class="row">

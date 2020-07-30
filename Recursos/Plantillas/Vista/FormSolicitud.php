@@ -10,19 +10,18 @@ include_once("Plantilla/cabezera.php");
 <img src="../assets/img/user.png" class="NavBar-Nav-icon" alt="User">
 <p class="full-width"><small> <b>Despachador :<br>Marcos Antonio</b> </h1></small></p><br><br>
 </div>
-
-<a href="" class="list-group-item"><p>
-<i aria-hidden="true"> Solicitud : xxxx</i></p>
-</a>
-
 <div class="full-width list-group" style="border-radius: 0;">
 <div class="list-group-item text-center">
-<a href="" class="list-group-item" id="categori-4">
-<i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Atender</a>
+<form action="get.php" method="POST"> 
+<Button type="submit" class="list-group-item" id="categori-4">
+<i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Atender</Button>
+</form>
 </div>
 <div class="list-group-item text-center">
-<a href="" class="list-group-item" id="categori-3">
-<i class="fa fa-remove" aria-hidden="true"></i> Rechazar</a>
+<form action="get.php" method="POST">
+<Button type="submit" class="list-group-item" id="categori-3">
+<i class="fa fa-remove" aria-hidden="true"></i> Rechazar</Button>
+</form>
 </div>
 </div>
 </div>
