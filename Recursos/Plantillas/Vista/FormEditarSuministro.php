@@ -28,11 +28,11 @@ include_once("Plantilla/cabezera.php");
             </select>
         </div>
         <div class="form-group">
-        <textarea class="form-control item" type="text" name=""  style="WIDTH: 340px; HEIGHT: 98px" maxlength="200" minlength="4" size=32  id="" placeholder="Detalle" required></textarea>
-        
+            <input class="form-control item" type="text" name="username" maxlength="15" minlength="4"  id="" placeholder="Cantidad" required>
         </div>
         <div class="form-group">
-            <input class="form-control item" type="text" name="username" maxlength="15" minlength="4"  id="" placeholder="Cantidad" required>
+        <textarea class="form-control item" type="text" name=""  style="WIDTH: 340px; HEIGHT: 98px" maxlength="200" minlength="4" size=32  id="" placeholder="Detalle" required></textarea>
+        
         </div>
         <form action="get.php" method="POST">
         <div class="form-group">
