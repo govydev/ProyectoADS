@@ -21,13 +21,6 @@ include_once("Plantilla/cabezera.php");
             <input class="form-control item" type="text" name="" maxlength="100" minlength="4"  id="" placeholder="Nombre" required>
         </div>
         <div class="form-group">
-        <label for=""> Unidades:</label>
-            <select name="" id="">
-            <option value="">A</option>
-            <option value="">e</option>
-            </select>
-        </div>
-        <div class="form-group">
         <textarea class="form-control item" type="text" name=""  style="WIDTH: 340px; HEIGHT: 98px" maxlength="200" minlength="4" size=32  id="" placeholder="Detalle" required></textarea>
         
         </div>

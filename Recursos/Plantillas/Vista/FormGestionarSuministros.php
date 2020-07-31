@@ -8,9 +8,10 @@ include_once("Plantilla/cabezera.php");
 		<i class="	fa fa-book" aria-hidden="true"></i>
 		<div>Listado de Suministros </div>		
 		</div>
-		<form action="get.php" method="POST">
+		
 		<label>Buscar : </label> <input type="text" name="busqueda">
-
+		<form action="get.php" method="POST">
+		<button type="submit" ></button>
 		</form>
      <div class="full-width" style="padding: 15px; border: 1px solid #E1E1E1;">
 	 
