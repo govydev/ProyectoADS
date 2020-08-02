@@ -1,6 +1,16 @@
 <?php
 include_once("Plantilla/cabezera.php");
 ?>
+<nav class=" full-width NavBar-Nav">
+			<div class="full-width NavBar-Nav-bg hidden-md hidden-lg show-menu-mobile"></div>
+			<ul class="list-unstyled full-width menu-mobile-c">
+				<li>
+					<button  class="btn btn-primary btn-sm" type="submit">
+						Agotados
+					</button>
+				</li>
+			</ul>
+		</nav>
 <section class="full-width section">
 <div class="modal-body row">
      <div class="col-md-6">
@@ -8,9 +18,10 @@ include_once("Plantilla/cabezera.php");
 		<i class="	fa fa-book" aria-hidden="true"></i>
 		<div>Listado de Suministros </div>		
 		</div>
-		<form action="get.php" method="POST">
+		
 		<label>Buscar : </label> <input type="text" name="busqueda">
-
+		<form action="get.php" method="POST">
+		<button type="submit" ></button>
 		</form>
      <div class="full-width" style="padding: 15px; border: 1px solid #E1E1E1;">
 	 

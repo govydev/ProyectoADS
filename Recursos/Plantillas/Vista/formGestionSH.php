@@ -1,20 +1,6 @@
-<?
-
-class formGestionSH{
-    public function formGestionSHShow($herramienta, $suministro){?>
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <title>Gestion Suministro Herramienta</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="../style/Css/main.css">
-	</head>
-    <body>
-<div class="full-width NavBar">
-	<div class="full-width text-semi-bold NavBar-logo">SMF</div>	
-</div>
+<?php
+include_once("Plantilla/cabezera.php");
+?>
 <nav class=" full-width NavBar-Nav">
 			<div class="full-width NavBar-Nav-bg hidden-md hidden-lg show-menu-mobile"></div>
 			<ul class="list-unstyled full-width menu-mobile-c">
@@ -51,8 +37,8 @@ class formGestionSH{
 		
      <div class="full-width" style="padding: 15px; border: 1px solid #E1E1E1;">
 	 
-	<table class="table table-bordered">
-		<thead class="thead-light">
+	<table class="table table-condensed">
+		<thead>
 			<tr>
 				<th>Nombre</th>
                 <th>Cantidad</th>
@@ -96,7 +82,7 @@ class formGestionSH{
 		<div>Listado de Herramientas </div>
 		</div>
 	   <div class="full-width" style="padding: 15px; border: 1px solid #E1E1E1;">
-	<table class="table table-bordered">
+	<table class="table table-condensed">
 		<thead>
 			<tr>
 				<th>Nombre</th>
@@ -161,7 +147,3 @@ class formGestionSH{
 	<script src="../../js/main.js"></script>
 </body>
 </html>
-    <?}
-}
-
-?>
