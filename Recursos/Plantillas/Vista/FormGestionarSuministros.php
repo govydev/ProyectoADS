@@ -1,6 +1,16 @@
 <?php
 include_once("Plantilla/cabezera.php");
 ?>
+<nav class=" full-width NavBar-Nav">
+			<div class="full-width NavBar-Nav-bg hidden-md hidden-lg show-menu-mobile"></div>
+			<ul class="list-unstyled full-width menu-mobile-c">
+				<li>
+					<button  class="btn btn-primary btn-sm" type="submit">
+						Agotados
+					</button>
+				</li>
+			</ul>
+		</nav>
 <section class="full-width section">
 <div class="modal-body row">
      <div class="col-md-6">
