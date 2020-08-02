@@ -3,9 +3,6 @@
 include_once("../shared/formMensaje.php");
 include_once("controlGestionSH.php");
 
-$objMensaje = new formMensaje;
-$objGestion = new controlGestionSH;
-
 switch ($_POST['btnAccion']) {
     case 'Buscar':
         if((trim($_POST['txtBusqueda']))){
