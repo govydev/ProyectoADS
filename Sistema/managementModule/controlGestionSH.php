@@ -5,8 +5,10 @@ include_once("../model/suministro.php");
 include_once("../model/unidades.php");
 include_once("../shared/formMensaje.php");
 include_once("formGestionSH.php");
-include_once("formModificarSuministro.php");
 include_once("formModificarHerramienta.php");
+include_once("formModificarSuministro.php");
+include_once("formRegistrarSuministro.php");
+include_once("formAgotado.php");
 
 class controlGestionSH{
 
@@ -61,6 +63,41 @@ class controlGestionSH{
         $objHerramienta =  new herramienta;
         $objHerramienta -> actualizarHerramienta($herramienta);
         header('Location: indexGestionSH.php');
+    }
+
+    public function enviarSuministroEditada($suministro){
+        $objSuministro =  new suministro;
+        $objSuministro -> actualizarSuministro($suministro);
+        header('Location: indexGestionSH.php');
+    }
+
+    public function iniciarNuevoSuministro(){
+        $objUnidad = new unidades;
+        $unidades = $objUnidad -> getAllUnidades();
+        $objRegistrar = new formRegistrarSuministro;
+        $objRegistrar -> formRegistrarSuministroShow($unidades);
+    }
+
+    public function enviarNuevoSuministro($suministro){
+        $objSuministro =  new suministro;
+        $objSuministro -> crearSuministro($suministro);
+        header('Location: indexGestionSH.php');
+    }
+
+    public function enviarNuevaHerramienta($herramienta){
+        $objHerramienta =  new herramienta;
+        $objHerramienta -> crearHerramienta($herramienta);
+        header('Location: indexGestionSH.php');
+    }
+
+    public function iniciarSHAgotado(){
+        $objHerramienta =  new herramienta;
+        $objSuministro =  new suministro;
+        $objAgotado = new formAgotado;
+        $herramientas = $objHerramienta -> getHerramientaAgotada();
+        $suministros = $objSuministro -> getSuministroAgotado();
+        $objAgotado -> formAgotadoShow($herramientas, $suministros);
+        
     }
 }
 

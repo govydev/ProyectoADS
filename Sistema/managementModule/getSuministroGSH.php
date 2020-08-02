@@ -6,6 +6,7 @@ $suministro = array(
     'id' => $_POST['txtId'],
     'nombre' => trim($_POST['txtNombre']),
     'cantidad' => $_POST['nbCantidad'],
+    'unidad' => $_POST['idUnidad'],
     'detalle' => trim($_POST['txtDetalle'])
 );
 
@@ -16,11 +17,12 @@ if(strlen($_POST['txtNombre']) < 4 || strlen($_POST['txtDetalle']) < 4 || $_POST
     $objGestion = new controlGestionSH;
     switch ($_POST['btnAccion']) {
         case 'Editar':
-            $objGestion -> enviarHerramientaEditada($herramienta);
+            $objGestion -> enviarSuministroEditada($suministro);
             break;
         
-        default:
-            # code...
+        case 'Registrar':
+            $objGestion -> enviarNuevoSuministro($suministro);
             break;
+
     }
 }

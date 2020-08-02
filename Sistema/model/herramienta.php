@@ -42,5 +42,21 @@ class herramienta{
 		mysql_query($consulta);	
 	}
 	
+	public function crearHerramienta($herramienta){
+		conexion::getConexion();
+		$consulta = "INSERT INTO `herramienta`(`idherramienta`, `nombre`, `cantidad`, `estado`, `detalle`)
+					 VALUES (NULL, '".$herramienta['nombre']."', '".$herramienta['cantidad']."', 1, '".$herramienta['detalle']."')";
+		mysql_query($consulta);
+	}
+
+	public function getHerramientaAgotada(){
+		conexion::getConexion();
+		$consulta = "SELECT * FROM herramienta WHERE cantidad = 0";
+		$resultado = mysql_query($consulta);
+		$num_registros = mysql_num_rows($resultado);
+		for($i = 0; $i < $num_registros; $i++)
+			$fila[$i] = mysql_fetch_array($resultado);
+		return ($fila);
+	}
 }
 ?>
