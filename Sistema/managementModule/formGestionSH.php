@@ -38,7 +38,7 @@ class formGestionSH{
 			<option value="herramienta">Herramienta</option>
 			<option value="suministro">Suministro</option>
 		</select>
-		<input type="submit" value="Buscar" name="btnAccion">
+		<input type="submit" class="btn btn-default" value="Buscar" name="btnAccion">
 	</form>
 </center>
 <section class="full-width section">
@@ -51,7 +51,7 @@ class formGestionSH{
 		
      <div class="full-width" style="padding: 15px; border: 1px solid #E1E1E1;">
 	 
-	<table class="table table-bordered">
+	<table class="table table-condensed">
 		<thead class="thead-light">
 			<tr>
 				<th>Nombre</th>
@@ -60,7 +60,7 @@ class formGestionSH{
 				<th>Detalle</th>
 				<th colspan="2">
 				<form action="get.php" method="POST"> 
-				<center><button type="submit">Nuevo</button></center>
+				<center><button type="submit" class="btn btn-primary">Nuevo</button></center>
 				</form>
 				</th>
 			</tr>
@@ -76,12 +76,12 @@ class formGestionSH{
 					<form action="getBotonGSH.php" method="POST"> 
 						<input type="hidden" name="txtId" value="<?= $fila["idsuministro"]?>">
 						<input type="hidden" name="txtTipo" value="suministro">
-						<input type="submit" value="Modificar" name="btnAccion">
+						<input type="submit"class="btn btn-default"  value="Modificar" name="btnAccion">
 					</form>
 					</td>
                     <td>
 					<form action="getBotonGSH.php" method="POST"> 
-						<center><button type="submit" onclick="return confirm('¿Realmente quiere eliminar el Suministro')">Eliminar</submit></center>
+						<center><button class="btn btn-default" type="submit" onclick="return confirm('¿Realmente quiere eliminar el Suministro')">Eliminar</submit></center>
 					</form>
 					</td>
 				</tr>
@@ -96,7 +96,7 @@ class formGestionSH{
 		<div>Listado de Herramientas </div>
 		</div>
 	   <div class="full-width" style="padding: 15px; border: 1px solid #E1E1E1;">
-	<table class="table table-bordered">
+	<table class="table table-condensed">
 		<thead>
 			<tr>
 				<th>Nombre</th>
@@ -104,7 +104,7 @@ class formGestionSH{
 				<th>Detalle</th>
 				<th colspan="2">
 				<form action="get.php" method="POST"> 
-				<center><button type="submit">Nuevo</button></center>
+				<center><button type="submit" class="btn btn-primary">Nuevo</button></center>
 				</form>
 				</th>
 			</tr>
@@ -119,12 +119,12 @@ class formGestionSH{
 					<form action="getBotonGSH.php" method="POST"> 
 						<input type="hidden" name="txtId" value="<?= $fila["idherramienta"]?>">
 						<input type="hidden" name="txtTipo" value="herramienta">
-						<input type="submit" value="Modificar" name="btnAccion">
+						<input type="submit" class="btn btn-default"  value="Modificar" name="btnAccion">
 					</form>
 					</td>
                     <td>
 					<form action="get.php" method="POST"> 
-						<center><button type="submit" onclick="return confirm('¿Realmente quiere eliminar el Suministro')">Eliminar</submit></center>
+						<center><button type="submit" class="btn btn-default" onclick="return confirm('¿Realmente quiere eliminar el Suministro')">Eliminar</submit></center>
 					</form>
 					</td>
 				</tr>
