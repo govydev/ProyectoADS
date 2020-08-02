@@ -23,13 +23,12 @@ class formGestionUsuario{
         <div class="col-xs-12 col-sm-4 col-md-3">
         <div class="full-width user-menu-xs">
         <div class="full-width post-user-info" style="margin: 0 !important;">
-        <img src="../style/assets/img/user.png" class="NavBar-Nav-icon" alt="User"><?/*session_start();*/?>
-        <p class="full-width"><small> <b>Administrador:<br><?/*=$_SESSION["usuario"]*/?></b> </h1></small></p><br><br>
+        <img src="../style/assets/img/user.png" class="NavBar-Nav-icon" alt="User"><?session_start();?>
+        <p class="full-width"><small> <b>Administrador:<br><?=$_SESSION["usuario"]?></b> </h1></small></p><br><br>
         </div>
         <div class="full-width list-group" style="border-radius: 0;">
         <div class="list-group-item text-center">
         <form action="../securityModule/getUsuario.php" method="POST">
-        <?session_start();?>
         <input type="hidden" value="<?=$_SESSION['usuario']?>" name="txtUsuario">
         <input type="hidden" value="<?=$_SESSION['clave']?>" name="txtPassword" >
         <center><input type="submit" value="Ir a menu principal" name="btnLogin" class="list-group-item" id="categori-8"></center>
