@@ -1,12 +1,12 @@
 <?php
 
-class formModificarSuministro{
+class formRegistrarSuministro{
 
-    public function formModificarSuministroShow($dato, $unidades){?>
+    public function formRegistrarSuministroShow($unidad){?>
     <!DOCTYPE html>
     <html lang="es">
         <head>
-            <title>Modificar Suministro</title>
+            <title>Registrar Suministro</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
@@ -30,28 +30,26 @@ class formModificarSuministro{
     <p class="full-width"><small><b>Almacener@:<br>Lisbeth</b></h1></small></p><br><br>
     <br>
         <form action="getSuministroGSH.php" method="POST">
-            <input type="hidden" name="txtId" value="<?=$dato[0]['idsuministro']?>">
+            <input type="hidden" name="txtId">
             <div class="form-group">
-                <input class="form-control item" type="text" name="txtNombre" id="" placeholder="Nombre" value="<?=$dato[0]['nombre']?>">
+                <input class="form-control item" type="text" name="txtNombre" id="" placeholder="Nombre">
             </div>
             <div class="form-group">
             <label for=""> Unidades:</label>
                 <select name="idUnidad">
-                <?foreach ($unidades as$value) {?>
-                <option value="<?=$value['idunidad']?>"
-                    <?if($dato[0]['diminutivo'] == $value['diminutivo']){?> selected <?}?>
-                ><?=$value["nombre"]?></option>
+                <?foreach ($unidad as$value) {?>
+                <option value="<?=$value['idunidad']?>"><?=$value["nombre"]?></option>
                 <?}?>
                 </select>
             </div>
             <div class="form-group">
-                <input class="form-control item" type="number" name="nbCantidad"  id="" placeholder="Cantidad" value="<?=$dato[0]['cantidad']?>">
+                <input class="form-control item" type="number" name="nbCantidad"  id="" placeholder="Cantidad">
             </div>
             <div class="form-group">
-            <textarea class="form-control item" type="text" name="txtDetalle"  style="WIDTH: 340px; HEIGHT: 98px" size=32  id="" placeholder="Detalle"><?=$dato[0]['detalle']?></textarea>
+            <textarea class="form-control item" type="text" name="txtDetalle"  style="WIDTH: 340px; HEIGHT: 98px" size=32  id="" placeholder="Detalle"></textarea>
             </div>
             <div class="form-group">
-                <input type="submit" value="Editar" name="btnAccion" class="btn btn-primary btn-block create-account">
+                <input type="submit" value="Registrar" name="btnAccion" class="btn btn-primary btn-block create-account">
             </div>
         </form>
         <div class="list-group-item text-center">
@@ -91,4 +89,5 @@ class formModificarSuministro{
     <?}
 
 }
+
 ?>

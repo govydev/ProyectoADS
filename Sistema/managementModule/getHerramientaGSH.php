@@ -19,9 +19,10 @@ if(strlen($_POST['txtNombre']) < 4 || strlen($_POST['txtDetalle']) < 4 || $_POST
             $objGestion -> enviarHerramientaEditada($herramienta);
             break;
         
-        default:
-            # code...
+        case 'Registrar':
+            $objGestion -> enviarNuevaHerramienta($herramienta);
             break;
+        
     }
 }
 
