@@ -19,8 +19,10 @@ class formGestionSH{
 			<div class="full-width NavBar-Nav-bg hidden-md hidden-lg show-menu-mobile"></div>
 			<ul class="list-unstyled full-width menu-mobile-c">
 				<li>
-				<center><input type="submit" value="   Agotados  " name="btnLogin" class="btn btn-primary btn-sm" id="categori-2"></center>
-
+				<form action="getBotonGSH.php" method="post">
+					<center><input type="submit" value="Elementos Agotado" name="btnAccion" class="btn btn-primary btn-sm" id="categori-2"></center>
+				</form>
+				
 				</li>
 			</ul>
 </nav>
@@ -59,8 +61,10 @@ class formGestionSH{
                 <th>Unidad</th>
 				<th>Detalle</th>
 				<th colspan="2">
-				<form action="get.php" method="POST"> 
-				<center><button type="submit" class="btn btn-primary">Nuevo</button></center>
+				<form action="getBotonGSH.php" method="POST"> 
+					<input type="hidden" name="txtId" value="<?= $fila["idsuministro"]?>">
+					<input type="hidden" name="txtTipo" value="suministro">
+					<center><input type="submit" value="Nuevo" name="btnAccion"></center>
 				</form>
 				</th>
 			</tr>
@@ -103,8 +107,10 @@ class formGestionSH{
                 <th>Cantidad</th>
 				<th>Detalle</th>
 				<th colspan="2">
-				<form action="get.php" method="POST"> 
-				<center><button type="submit" class="btn btn-primary">Nuevo</button></center>
+				<form action="getBotonGSH.php" method="POST"> 
+					<input type="hidden" name="txtId" value="<?= $fila["idherramienta"]?>">
+					<input type="hidden" name="txtTipo" value="herramienta">
+					<center><input type="submit" value="Nuevo" name="btnAccion"></center>
 				</form>
 				</th>
 			</tr>

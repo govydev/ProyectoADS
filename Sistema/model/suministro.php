@@ -36,10 +36,27 @@ class suministro{
 	public function actualizarSuministro($suministro){
 		conexion::getConexion();
 		$consulta = "UPDATE `suministro`
-					 SET nombre = '".$suministro['nombre']."', cantidad = ".$suministro['cantidad'].", unidad = ".$suministro['unidad'].", detalle = '".$suministro['detalle']."'
+					 SET nombre = \"".$suministro['nombre']."\", cantidad = '".$suministro['cantidad']."', unidad = '".$suministro['unidad']."', detalle = '".$suministro['detalle']."'
 					 WHERE 
-					 	idsuministro = ".$suministro['id'];
+						 idsuministro = ".$suministro['id'];
 		mysql_query($consulta);	
+	}
+
+	public function crearSuministro($suministro){
+		conexion::getConexion();
+		$consulta = "INSERT INTO `suministro`(`idsuministro`, `nombre`, `cantidad`, `unidad`, `estado`, `detalle`)
+					 VALUES (NULL, '".$suministro['nombre']."', '".$suministro['cantidad']."', '".$suministro['unidad']."', 1, '".$suministro['detalle']."')";
+		mysql_query($consulta);
+	}
+
+	public function getSuministroAgotado(){
+        conexion::getConexion();
+		$consulta = "SELECT s.idsuministro, s.nombre, s.cantidad, u.diminutivo, s.detalle FROM suministro s, unidad u WHERE s.unidad = u.idunidad AND s.cantidad = 0";
+		$resultado = mysql_query($consulta);
+		$num_registros = mysql_num_rows($resultado);
+		for($i = 0; $i < $num_registros; $i++)
+			$fila[$i] = mysql_fetch_array($resultado);
+		return ($fila);
 	}
 }
 ?>
