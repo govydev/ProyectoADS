@@ -49,6 +49,21 @@ switch ($_POST['btnAccion']) {
         $objGestion -> iniciarSHAgotado();
         break;
     
+    case 'Eliminar':
+        $idSeleccion = $_POST['txtId'];
+        switch ($_POST['txtTipo']) {
+            case 'suministro':
+                $objGestion = new controlGestionSH;
+                $objGestion -> iniciarEliminarSuministro($idSeleccion);
+                break;
+            
+            case 'herramienta':
+                $objGestion = new controlGestionSH;
+                $objGestion -> iniciarEliminarHerramienta($idSeleccion);
+                break;
+        }
+        break;
+
 }
 
 ?>
