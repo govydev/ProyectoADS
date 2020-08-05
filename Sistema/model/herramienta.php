@@ -5,7 +5,7 @@ class herramienta{
 	
 	public function getAllHerramienta(){
         conexion::getConexion();
-		$consulta = "SELECT * FROM herramienta";
+		$consulta = "SELECT * FROM herramienta WHERE estado = 1";
 		$resultado = mysql_query($consulta);
 		$num_registros = mysql_num_rows($resultado);
 		for($i = 0; $i < $num_registros; $i++)
@@ -57,6 +57,15 @@ class herramienta{
 		for($i = 0; $i < $num_registros; $i++)
 			$fila[$i] = mysql_fetch_array($resultado);
 		return ($fila);
+	}
+
+	public function eliminarHerramienta($idHerramienta){
+		conexion::getConexion();
+		$consulta = "UPDATE `herramienta`
+					 SET estado = 0
+					 WHERE 
+						 idherramienta = ".$idHerramienta;
+		mysql_query($consulta);	
 	}
 }
 ?>

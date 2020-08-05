@@ -5,7 +5,7 @@ class suministro{
 	
 	public function getAllSuministro(){
         conexion::getConexion();
-		$consulta = "SELECT s.idsuministro, s.nombre, s.cantidad, u.diminutivo, s.detalle FROM suministro s, unidad u WHERE s.unidad = u.idunidad";
+		$consulta = "SELECT s.idsuministro, s.nombre, s.cantidad, u.diminutivo, s.detalle FROM suministro s, unidad u WHERE s.unidad = u.idunidad AND s.estado = 1";
 		$resultado = mysql_query($consulta);
 		$num_registros = mysql_num_rows($resultado);
 		for($i = 0; $i < $num_registros; $i++)
@@ -57,6 +57,15 @@ class suministro{
 		for($i = 0; $i < $num_registros; $i++)
 			$fila[$i] = mysql_fetch_array($resultado);
 		return ($fila);
+	}
+
+	public function eliminarSuministro($idSuministro){
+		conexion::getConexion();
+		$consulta = "UPDATE `suministro`
+					 SET estado = 0
+					 WHERE 
+						 idsuministro = ".$idSuministro;
+		mysql_query($consulta);	
 	}
 }
 ?>
