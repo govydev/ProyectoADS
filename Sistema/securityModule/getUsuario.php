@@ -6,13 +6,16 @@ $objAutenticacion = new controlAutenticacion;
 $objMensaje = new formMensaje;
 
 if(isset($_POST['btnLogin'])){
+    session_start();
     $usuario = trim($_POST['txtUsuario']);
     $password = trim($_POST['txtPassword']);
+    $_SESSION['usuario']=$usuario;
+    $_SESSION['clave']=$password;
     if(strlen($usuario) >= 4 && strlen($password) >= 4){ 
         $objAutenticacion -> validarUsuario($usuario, $password);
     }
     else{
-        $objMensaje -> formMensajeShow("ERROR AL INGRESAR EL USUARIO Y CONTRASEÑA","../index.php");
+        $objMensaje -> formMensajeShow("LOS DATOS ENVIADOS NO SON CORRECTOS","../index.php");
     }
 }
 else{

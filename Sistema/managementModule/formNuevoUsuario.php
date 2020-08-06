@@ -7,7 +7,7 @@ class formNuevoUsuario{
         <!DOCTYPE html>
         <html lang="es">
             <head>
-                <title></title>
+                <title>Nuevo Usuario</title>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
@@ -29,36 +29,38 @@ class formNuevoUsuario{
         <div class="full-width post-user-info" style="margin: 0 !important;">
         <img src="../style/assets/img/user.png" class="NavBar-Nav-icon" alt="User">
         <p class="full-width"><small> <b>Nuevo Usuario<br></b></h1></small></p><br><br>
-        </div><br>
-        <form>
+        <br>
+        <form action="getUsuarioGU.php" method="POST">
                 <div class="form-group">
-                    <input class="form-control item" type="text" name="" maxlength="100" minlength="4"  id="" placeholder="Nombre" required>
+                    <input class="form-control item" type="text" name="txtNombre"  id="" placeholder="Nombre" required>
                 </div>
                 <div class="form-group">
-                    <input class="form-control item" type="text" name="" maxlength="100" minlength="4"  id="" placeholder="A.Paterno" required>
+                    <input class="form-control item" type="text" name="txtApPaterno" id="" placeholder="A.Paterno" required>
                 </div>
                 <div class="form-group">
-                    <input class="form-control item" type="text" name="" maxlength="100" minlength="4"  id="" placeholder="A.Materno" required>
+                    <input class="form-control item" type="text" name="txtApMaterno"  id="" placeholder="A.Materno" required>
                 </div>
                 <div class="form-group">
-                    <input class="form-control item" type="text" name="" maxlength="100" minlength="4"  id="" placeholder="Usuario" required>
+                    <input class="form-control item" type="text" name="txtUsuario"  id="" placeholder="Usuario" required>
                 </div>
                 <div class="form-group">
-                    <input class="form-control item" type="text" name="" maxlength="100" minlength="4"  id="" placeholder="Contraseña" required>
+                    <input class="form-control item" type="password" name="txtPassword"  id="" placeholder="Contraseña" required>
                 </div>
                 <div class="form-group">
                     <label for="">Roles :</label><br>
+                    <?$i = 0;?>
                     <?foreach ($roles as $var) {?>
-                        <input type="checkbox" name="check" id="" value="0">  <?=$var["rol"]?><br>
+                        <input type="checkbox" name="rol<?=$i?>">  <?=$var["rol"]?><br>
+                        <?$i++;?>
                     <?}?>
                 </div>
                 <div class="form-group">
                 <label for="">Estado :  </label><br>
-                    <input type="radio" name="check" id="" value="1" checked>Activo
-                    <input type="radio" name="check" value="2">Inactivo<br>
+                    <input type="radio" name="rdEstado" value="1">  Activo <br>
+                    <input type="radio" name="rdEstado" value="0">  Inactivo<br>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-primary btn-block create-account" type="submit"> Guardar</button>
+                    <input type="submit" class="btn btn-primary btn-block create-account" name="btnAccion" value="Registrar">
                 </div>
             </form>
         <div class="list-group-item text-center">
@@ -83,6 +85,7 @@ class formNuevoUsuario{
                 <li><a href="#!">:)</a></li>
                 <li><a href="#!">WEB</a></li>
             </ul>
+        </div>
         </div>
         </div>
         </footer>

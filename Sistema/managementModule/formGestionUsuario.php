@@ -7,7 +7,7 @@ class formGestionUsuario{
         <!DOCTYPE html>
         <html lang="es">
             <head>
-                <title></title>
+                <title>Gestion de Usuario</title>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
@@ -23,13 +23,15 @@ class formGestionUsuario{
         <div class="col-xs-12 col-sm-4 col-md-3">
         <div class="full-width user-menu-xs">
         <div class="full-width post-user-info" style="margin: 0 !important;">
-        <img src="../style/assets/img/user.png" class="NavBar-Nav-icon" alt="User"><?/*session_start();*/?>
-        <p class="full-width"><small> <b>Administrador:<br><?/*=$_SESSION["user"]*/?></b> </h1></small></p><br><br>
+        <img src="../style/assets/img/user.png" class="NavBar-Nav-icon" alt="User"><?session_start();?>
+        <p class="full-width"><small> <b>Administrador:<br><?=$_SESSION["usuario"]?></b> </h1></small></p><br><br>
         </div>
         <div class="full-width list-group" style="border-radius: 0;">
         <div class="list-group-item text-center">
-        <form action="controlAutenticacion.php" method="POST">
-        <i class="	fa fa-mail-reply-all" aria-hidden="true"></i>  Ir a menu principal</a>
+        <form action="../securityModule/getUsuario.php" method="POST">
+        <input type="hidden" value="<?=$_SESSION['usuario']?>" name="txtUsuario">
+        <input type="hidden" value="<?=$_SESSION['clave']?>" name="txtPassword" >
+        <center><input type="submit" value="Ir a menu principal" name="btnLogin" class="list-group-item" id="categori-8"></center>
         </form>
         </div>
         </div>
@@ -41,25 +43,30 @@ class formGestionUsuario{
         <div>Gestion de Usuarios </div>
         </div><br>
         <form action="getBotonGU.php" method="POST">
-        <input type="text" name="txtBusqueda">
-        <select name="" id="">
-            <option value="">A</option>
-            <option value="">e</option>
-        </select>
-        <input type="submit" value="Buscar" name="btnAccion"><br><br>
+        <select name="ddBusqueda">
+                <option value="nombre">Nombre</option>
+                <option value="appaterno">Apellido Paterno</option>
+                <option value="apmaterno">Apellido Materno</option>
+                <option value="login">Usuario</option>
+            </select>
+            <input type="text" name="txtBusqueda">
+            <input type="submit" value="Buscar" name="btnAccion" class="btn btn-default"><br><br>
         </form>
         <div class="full-width" style="padding: 15px; border: 1px solid #E1E1E1;">
-            <table class="table table-condensed">
+            <table class="table table-condensed" style='text-align: center'>
                 <thead>
                     <tr>
-                        <th>N°</th>
-                        <th>Nombre</th>
-                        <th>A.Paterno</th>
-                        <th>A.Materno</th>
-                        <th>Usuario</th>
-                        <th>Contraseña</th>
-                        <th>Estado</th>
-                        <th ><form action="getBotonGU.php" method="POST"><input type="submit" value="Nuevo" name="btnAccion"></form></th>
+                        <th><center>N°</center></th>
+                        <th><center>Nombre</center></th>
+                        <th><center>A.Paterno</center></th>
+                        <th><center>A.Materno</center></th>
+                        <th><center>Usuario</center></th>
+                        <th><center>Estado</center></th>
+                        <th>
+                        <form action="getBotonGU.php" method="POST">
+                        <center><input type="submit" value="Nuevo" name="btnAccion"  class="btn btn-primary"></center>
+                        </form>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -71,15 +78,15 @@ class formGestionUsuario{
                                 <td><?=$value["appaterno"]?></td>
                                 <td><?=$value["apmaterno"]?></td>
                                 <td><?=$value["login"]?></td>
-                                <th><?=$value["password"]?></th>
-                                <th><?php 
-                                if($value["password"])  echo "Habilitado";
-                                else                    echo "Deshabilitado";
-                                ?></th>
+                                <th><center><?php 
+                                if($value["estado"])    echo "<label style='color:green'>Habilitado</label>";
+                                else                    echo "<label style='color:red'>Deshabilitado</label>";
+                                ?></center></th>
                                 <td>
-                                <!--Tengo el incoveniente que tengo que pasar a getBotonGU el usuario, el boton y la accion,
-                                talves tengamos que cambiar ese etiqueta a por un boton-->
-                                    <a name="btnAccion" action="Modifcar" href="getBotonGU.php?=<?=$value["login"]?>">Editar</a>
+                                    <form action="getBotonGU.php" method="POST">
+                                        <input type="hidden" name="login" value='<?=$value["login"]?>'>
+                                        <center><input type="submit" value="Modificar"  class="btn btn-default" name="btnAccion"></center>
+                                    </form>
                                 </td>
                             </tr>
                         <?}?>
