@@ -10,8 +10,8 @@ switch ($_POST['btnAccion']) {
             $objGestion = new controlGestionSH;
             $objGestion -> iniciarBusqueda($_POST['txtBusqueda'], $_POST['ddTipo']); 
         }else{
-            $objMensaje = new formMensaje;
-            $objMensaje -> formMensajeShow("LOS DATOS NO DEBEN SER NULOS","../managementModule/indexGestionSH.php");
+            $objGestion = new controlGestionSH;
+            $objGestion -> cargarTablasSH();
         }
         break;
     
