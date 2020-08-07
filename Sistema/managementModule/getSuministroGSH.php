@@ -10,7 +10,7 @@ $suministro = array(
     'detalle' => trim($_POST['txtDetalle'])
 );
 
-if(strlen($_POST['txtNombre']) < 4 || strlen($_POST['txtDetalle']) < 4 || $_POST['nbCantidad'] < 0){
+if(strlen($_POST['txtNombre']) < 4 || $_POST['nbCantidad'] < 0){
     $objMensaje = new formMensaje;
     $objMensaje -> formMensajeShow("LA LONGITUD DE LOS DATOS DEBE SER POR LO MENOS 4","../managementModule/indexGestionSH.php");
 }else{
