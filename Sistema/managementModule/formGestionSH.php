@@ -10,6 +10,15 @@ class formGestionSH{
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="../style/Css/main.css">
+		<script>
+			function alertEliminarShow(text) {
+				if (confirm(text)) {
+					return true;
+				}else{
+					return false;
+				}
+			}
+		</script>
 	</head>
     <body>
 <div class="full-width NavBar">
@@ -85,7 +94,11 @@ class formGestionSH{
 					</td>
                     <td>
 					<form action="getBotonGSH.php" method="POST"> 
-						<center><button class="btn btn-default" type="submit" onclick="return confirm('¿Realmente quiere eliminar el Suministro')">Eliminar</submit></center>
+						<input type="hidden" name="txtId" value="<?= $fila["idsuministro"]?>">
+						<input type="hidden" name="txtTipo" value="suministro">
+						<center>
+							<input type="submit" value="Eliminar" class="btn btn-default" name="btnAccion" onclick="return alertEliminarShow('¿Realmente quiere eliminar el suministro')">
+						</center>
 					</form>
 					</td>
 				</tr>
@@ -129,8 +142,12 @@ class formGestionSH{
 					</form>
 					</td>
                     <td>
-					<form action="get.php" method="POST"> 
-						<center><button type="submit" class="btn btn-default" onclick="return confirm('¿Realmente quiere eliminar el Suministro')">Eliminar</submit></center>
+					<form action="getBotonGSH.php" method="POST"> 
+						<input type="hidden" name="txtId" value="<?= $fila["idherramienta"]?>">
+						<input type="hidden" name="txtTipo" value="herramienta">
+						<center>
+							<input type="submit" value="Eliminar" class="btn btn-default" name="btnAccion" onclick="return alertEliminarShow('¿Realmente quiere eliminar la herramienta')">
+						</center>
 					</form>
 					</td>
 				</tr>

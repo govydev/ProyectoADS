@@ -99,6 +99,19 @@ class controlGestionSH{
         $objAgotado -> formAgotadoShow($herramientas, $suministros);
         
     }
+
+    public function iniciarEliminarSuministro($idSuministro){
+        $objSuministro =  new suministro;
+        $objSuministro -> eliminarSuministro($idSuministro);
+        header('Location: indexGestionSH.php');
+    }
+
+    public function iniciarEliminarHerramienta($idHerramienta){
+        $objHerramienta =  new herramienta;
+        $objHerramienta -> eliminarHerramienta($idHerramienta);
+        header('Location: indexGestionSH.php');
+    }
+
 }
 
 ?>

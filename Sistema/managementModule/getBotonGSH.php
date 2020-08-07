@@ -10,8 +10,8 @@ switch ($_POST['btnAccion']) {
             $objGestion = new controlGestionSH;
             $objGestion -> iniciarBusqueda($_POST['txtBusqueda'], $_POST['ddTipo']); 
         }else{
-            $objMensaje = new formMensaje;
-            $objMensaje -> formMensajeShow("LOS DATOS NO DEBEN SER NULOS","../managementModule/indexGestionSH.php");
+            $objGestion = new controlGestionSH;
+            $objGestion -> cargarTablasSH();
         }
         break;
     
@@ -49,6 +49,21 @@ switch ($_POST['btnAccion']) {
         $objGestion -> iniciarSHAgotado();
         break;
     
+    case 'Eliminar':
+        $idSeleccion = $_POST['txtId'];
+        switch ($_POST['txtTipo']) {
+            case 'suministro':
+                $objGestion = new controlGestionSH;
+                $objGestion -> iniciarEliminarSuministro($idSeleccion);
+                break;
+            
+            case 'herramienta':
+                $objGestion = new controlGestionSH;
+                $objGestion -> iniciarEliminarHerramienta($idSeleccion);
+                break;
+        }
+        break;
+
 }
 
 ?>
