@@ -63,7 +63,7 @@ class formListaSolicitud{
                     <td><?= $fila[5] ?></td>
 					<td>
 						<button class="btn btn-info" type="submit">Ver</button>
-					</td>
+					</td><?}?>
 				</tr>
 		</tbody>
 	</table>
