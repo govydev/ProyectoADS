@@ -1,11 +1,11 @@
 <?
 
-class formDetalleSolicitud{
-    public function formDetalleSolicitudShow($detalleSuministro, $detalleHerramienta, $datos){?>
+class formDetalleRegistro{
+    public function formDetalleRegistroShow($detalleSuministro, $detalleHerramienta, $datos){?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>Gestion Suministro Herramienta</title>
+        <title>Detalle del Registro</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
@@ -37,7 +37,7 @@ class formDetalleSolicitud{
 </nav>
 <br>
 <form action="getBotonMD.php" method="POST">
-	<center><input type="submit" value="Visualizar solicitud" name="btnOpcion" class="list-group-item" id="categori-8"></center>
+	<center><input type="submit" value="Registros de salida" name="btnOpcion" class="list-group-item" id="categori-8"></center>
 </form>
 <br>
 <center>

@@ -27,7 +27,7 @@ class forEmitirSolicitud{
 <div class="full-width list-group" style="border-radius: 0;">
 <div class="list-group-item text-center">
     <div class="list-group-item text-center">
-        <a href="indexGestionSH.php" class="list-group-item" id="categori-4">
+        <a href="indexEmitirSolicitud.php" class="list-group-item" id="categori-4">
         <i class="fa fa-mail-reply-all" aria-hidden="true"></i> Volver atrás</a>
     </div>
 </div>

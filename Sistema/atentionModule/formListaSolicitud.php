@@ -26,6 +26,11 @@ class formListaSolicitud{
 <p class="full-width"><small> <b>Despachador :<br>Marcos Antonio</b> </h1></small></p><br><br>
 </div>
 <div class="full-width list-group" style="border-radius: 0;">
+<div class="list-group-item text-center">
+<form action="indexEmitirRegistro.php" method="post">
+<center><input type="submit" value="Ir a menu despachador" name="btnLogin" class="list-group-item" id="categori-8"></center>
+</form>
+</div>
 </div>
 </div>
 </div>
@@ -52,8 +57,9 @@ class formListaSolicitud{
 			</tr>
 		</thead>
 		<tbody>
-				<tr>
+				
 				<?foreach ($solicitudes as $fila) {?>
+					<tr>
 					<td><?= $fila[0] ?></td>
 					<td><?= $fila[1] ?></td>
                     <td><?= $fila[2] ?></td>
@@ -66,8 +72,8 @@ class formListaSolicitud{
 						<input type="hidden" name="DNI" value='<?=$fila[2]?>'>
 						<input class="btn btn-info" type="submit" value="Ver" name="btnAccion">
 					</form>
-				</td><?}?>
-				</tr>
+				</td>
+				</tr><?}?>
 		</tbody>
 	</table>
 </div>
