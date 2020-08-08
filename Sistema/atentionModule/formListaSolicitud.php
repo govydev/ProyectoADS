@@ -2,7 +2,7 @@
 
 class formListaSolicitud{
 
-    public function formListaSolicitudShow(){?>
+    public function formListaSolicitudShow($solicitudes){?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -44,16 +44,23 @@ class formListaSolicitud{
 		<thead>
 			<tr>
 				<th>Nº</th>
-				<th>Solicitud</th>
-                <th>Fecha de Emision</th>
+				<th>Nombre</th>
+                <th>DNI</th>
+				<th>motivo</th>
+				<th>Fecha de Emision</th>
+                <th>estado</th>
 				<th colspan="1">Detalles</th>
 			</tr>
 		</thead>
 		<tbody>
 				<tr>
+				<?foreach ($solicitudes as $fila) {?>
 					<td><?= $fila[0] ?></td>
 					<td><?= $fila[1] ?></td>
                     <td><?= $fila[2] ?></td>
+					<td><?= $fila[3] ?></td>
+					<td><?= $fila[4] ?></td>
+                    <td><?= $fila[5] ?></td>
 					<td>
 						<button class="btn btn-info" type="submit">Ver</button>
 					</td>
