@@ -2,7 +2,7 @@
 
 class formRegistro{
 
-    public function formRegistroShow(){?>
+    public function formRegistroShow($registros){?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -44,23 +44,28 @@ class formRegistro{
 		<thead>
 			<tr>
 				<th>Nº</th>
-				<th>Registro de Salida</th>
-                <th>Fecha de Emision </th>
-				<th>Fecha de atencion</th>
+				<th>Nombre</th>
+                <th>DNI</th>
+				<th>motivo</th>
+				<th>Fecha de Emision</th>
+                <th>estado</th>
                 <th>Detalles</th>
 			</tr>
 		</thead>
 		<tbody>
 				<tr>
-					<td></td>
-					<td></td>
-                    <td></td>
-                    <td></td>
+				<?foreach ($registros as $fila) {?>
+					<td><?= $fila[0] ?></td>
+					<td><?= $fila[1] ?></td>
+                    <td><?= $fila[2] ?></td>
+					<td><?= $fila[3] ?></td>
+					<td><?= $fila[4] ?></td>
+                    <td><?= $fila[5] ?></td>
 					<td>
 					<form action="get" method="post">
 					<center><button type="submit" class="btn btn-info">Nuevo</button></center>
 					</form>
-					</td>
+					</td><?}?>
 				</tr>
 		</tbody>
 	</table>
