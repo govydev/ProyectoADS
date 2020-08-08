@@ -26,7 +26,7 @@ $roles = array(
 
 if (strlen($_POST['txtNombre']) < 4 || strlen($_POST['txtApPaterno']) < 4 ||  strlen($_POST['txtApMaterno']) < 4 ||  strlen($_POST['txtUsuario']) < 4 || strlen($_POST['txtPassword']) < 4 ) {
     $objMensaje = new formMensaje;
-    $objMensaje -> formMensajeShow("LA LONGITUD DE LOS DATOS DEBE SER POR LO MENOS 4","../managementModule/indexGestionSH.php");
+    $objMensaje -> formMensajeShow("LA LONGITUD DE LOS DATOS DEBE SER POR LO MENOS 4","../managementModule/indexGestionUsuario.php");
 }else {
     $objGestion =  new controlGestionUsuario;
     switch ($_POST["btnAccion"]) {
