@@ -5,7 +5,7 @@ include_once("../model/suministro.php");
 include_once("formGenerarSolicitud.php");
 include_once("../shared/formMensaje.php");
 
-class controlSolicitudes{
+class controlSolicitudES{
 
     public function cargarSH(){
         $objHerramienta =  new herramienta;

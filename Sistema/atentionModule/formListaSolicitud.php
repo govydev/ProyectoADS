@@ -34,8 +34,8 @@ class formListaSolicitud{
 <i class="	fa fa-book" aria-hidden="true"></i>
 <div>Listado de Solicitudes </div>
 </div><br>
-<form action="get.php" method="POST"> 
-<label> Solicitud :</label> <input type="text" name="" required >
+<form action="getBotonLS.php" method="POST"> 
+<label> Solicitud :</label> <input type="text" name="" >
 <i aria-hidden="true"></i><button>Buscar</button></a>
 </form>
 <!-- Contenido-->
@@ -46,7 +46,6 @@ class formListaSolicitud{
 				<th>Nº</th>
 				<th>Nombre</th>
                 <th>DNI</th>
-				<th>motivo</th>
 				<th>Fecha de Emision</th>
                 <th>estado</th>
 				<th colspan="1">Detalles</th>
@@ -58,11 +57,15 @@ class formListaSolicitud{
 					<td><?= $fila[0] ?></td>
 					<td><?= $fila[1] ?></td>
                     <td><?= $fila[2] ?></td>
-					<td><?= $fila[3] ?></td>
 					<td><?= $fila[4] ?></td>
                     <td><?= $fila[5] ?></td>
 					<td>
+					<form action="getBotonLS.php" method="post">
+						<input type="hidden" name="idSolicitud" value='<?=$fila[0]?>'>
+						<input type="hidden" name="nombre" value='<?=$fila[1]?>'>
+						<input type="hidden" name="DNI" value='<?=$fila[2]?>'>
 						<button class="btn btn-info" type="submit">Ver</button>
+					</form>
 				</td><?}?>
 				</tr>
 		</tbody>
