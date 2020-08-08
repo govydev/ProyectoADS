@@ -1,7 +1,8 @@
-<?
+<?php
 
-class forEmitirSolicitud{
-    public function forEmitirSolicitudShow(){?>
+class formRegistro{
+
+    public function formRegistroShow(){?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -22,76 +23,51 @@ class forEmitirSolicitud{
 <div class="full-width user-menu-xs">
 <div class="full-width post-user-info" style="margin: 0 !important;">
 <img src="../style/assets/img/user.png" class="NavBar-Nav-icon" alt="User">
-<p class="full-width"><small> <b>Almacener@:<br>Lisbeth</b> </h1></small></p><br><br>
+<p class="full-width"><small> <b>Despachador :<br>Marcos Antonio</b> </h1></small></p><br><br>
 </div>
 <div class="full-width list-group" style="border-radius: 0;">
 <div class="list-group-item text-center">
-    <div class="list-group-item text-center">
-        <a href="indexGestionSH.php" class="list-group-item" id="categori-4">
-        <i class="fa fa-mail-reply-all" aria-hidden="true"></i> Volver atrás</a>
-    </div>
+<button type="submit" class="btn btn-info" >
+<i class="	fa fa-mail-reply" aria-hidden="true"></i> ir a menu Despachador</button>
 </div>
 </div>
 </div>
 </div>
-<div>
 <div class="col-xs-12 col-sm-8 col-md-9">
 <div class="full-width bar-info-user">
 <i class="	fa fa-book" aria-hidden="true"></i>
-<div>Listado de Herramientas</div>
+<div> Registros de Salida</div>
 </div><br>
 <!-- Contenido-->
 <div class="full-width" style="padding: 15px; border: 1px solid #E1E1E1;">
 	<table class="table table-condensed">
 		<thead>
 			<tr>
-				<th>N°</th>
-				<th>Nombre</th>
-                <th>Detalle</th>
-                <th>Unidad</th>
+				<th>Nº</th>
+				<th>Registro de Salida</th>
+                <th>Fecha de Emision </th>
+				<th>Fecha de atencion</th>
+                <th>Detalles</th>
 			</tr>
 		</thead>
 		<tbody>
 				<tr>
-					<td><?= $i?></td>
-					<td><?= $value['nombre'] ?></td>
-                    <td><?= $value['detalle'] ?></td>
-                    <td><?= $value['diminutivo'] ?></td>
-				</tr>  
-		</tbody>
-	</table>
-</div><br>
-</div>
-</div><br><br><br>
-<div class="col-xs-12 col-sm-8 col-md-9">
-<div class="full-width bar-info-user">
-<i class="	fa fa-book" aria-hidden="true"></i>
-<div>Listado de Herramientas</div>
-</div><br>
-<!-- Contenido-->
-<div class="full-width" style="padding: 15px; border: 1px solid #E1E1E1;">
-	<table class="table table-condensed">
-		<thead>
-			<tr>
-				<th>N°</th>
-				<th>Nombre</th>
-                <th>Detalle</th>
-			</tr>
-		</thead>
-		<tbody>
-            
-				<tr>
-					<td><?= $i?></td>
-					<td><?= $value['nombre'] ?></td>
-                    <td><?= $value['detalle'] ?></td>
+					<td></td>
+					<td></td>
+                    <td></td>
+                    <td></td>
+					<td>
+					<form action="get" method="post">
+					<center><button type="submit" class="btn btn-info">Nuevo</button></center>
+					</form>
+					</td>
 				</tr>
 		</tbody>
 	</table>
 </div>
 </div>
 </div>
-</div><br><br>
-</section>
+</section><br><br><br>
 <footer class="full-width footer">
 <div class="container">
 	<p class="text-semi-bold">
@@ -110,6 +86,7 @@ class forEmitirSolicitud{
 </div>
 </div>
 </footer>
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="../js/jquery-1.11.2.min.js"><\/script>')</script>
 	<script src="../../js/bootstrap.min.js"></script>
@@ -118,4 +95,7 @@ class forEmitirSolicitud{
 </body>
 </html>
     <?}
-}?>
+
+}
+
+?>
