@@ -34,10 +34,10 @@ class formListaSolicitud{
 <i class="	fa fa-book" aria-hidden="true"></i>
 <div>Listado de Solicitudes </div>
 </div><br>
-<form action="getBotonLS.php" method="POST"> 
-<label> Solicitud :</label> <input type="text" name="" >
-<i aria-hidden="true"></i><button>Buscar</button></a>
-</form>
+<form action="getBotonLS.php" method="POST">
+            <input type="text" name="txtBusqueda">
+            <input type="submit" value="Buscar" name="btnAccion" class="btn btn-default"><br><br>
+        </form>
 <!-- Contenido-->
 <div class="full-width" style="padding: 15px; border: 1px solid #E1E1E1;">
 	<table class="table table-condensed">
@@ -64,7 +64,7 @@ class formListaSolicitud{
 						<input type="hidden" name="idSolicitud" value='<?=$fila[0]?>'>
 						<input type="hidden" name="nombre" value='<?=$fila[1]?>'>
 						<input type="hidden" name="DNI" value='<?=$fila[2]?>'>
-						<button class="btn btn-info" type="submit">Ver</button>
+						<input class="btn btn-info" type="submit" value="Ver" name="btnAccion">
 					</form>
 				</td><?}?>
 				</tr>
