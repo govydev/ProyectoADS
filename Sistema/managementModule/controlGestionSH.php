@@ -67,7 +67,7 @@ class controlGestionSH{
         self::cargarTablasSH();
     }
 
-    public function enviarSuministroEditada($suministro){
+    public function enviarSuministroEditado($suministro){
         $objSuministro =  new suministro;
         $objSuministro -> actualizarSuministro($suministro);
         self::cargarTablasSH();

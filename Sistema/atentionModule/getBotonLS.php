@@ -3,6 +3,8 @@
 include_once("controlSolicitudER.php");
 include_once("formEmitirSolicitud.php");
 
+$suministros = array();
+$herramientas = array();
 switch ($_POST['btnAccion']) {
     case 'Buscar':
         if((trim($_POST['txtBusqueda']))){
@@ -21,7 +23,21 @@ switch ($_POST['btnAccion']) {
         );
         $objControl = new controlSolicitudER;
         $objControl -> iniciarDetalleSolicitud($_POST['idSolicitud'], $solicitud);
+        break;
     
+    case 'Aceptar Solicitud':
+        session_start();
+        $suministros = $_SESSION['arrayS'];
+        $herramientas = $_SESSION['arrayH'];
+        if($suministros != null){
+            $idSolicitud = $suministros['idSolicitud'];
+        }else if($herramientas != null){
+            $idSolicitud = $herramientas['idSolicitud'];
+        }
+        $objSolicitud = new controlSolicitudER;
+        $objSolicitud -> atenderSolicitud($suministros, $herramientas, $idSolicitud);
+        break;
+            
 }
 
 ?>

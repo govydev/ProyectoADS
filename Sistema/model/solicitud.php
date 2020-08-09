@@ -42,6 +42,15 @@ class solicitud{
 		return ($fila);
 	}
 
+	public function actualizarEstadoSolicitud($idSolicitud){
+		conexion::getConexion();
+		$consulta = "UPDATE `solicitud`
+					 SET estado = 2
+					 WHERE 
+						 idsolicitud = ".$idSolicitud;
+		mysql_query($consulta);
+	}
+
 	public function crearSolicitud($nombre, $dni){
 		date_default_timezone_set('America/Lima');
 		$hoy = getdate();

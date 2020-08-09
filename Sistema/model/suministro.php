@@ -67,5 +67,14 @@ class suministro{
 						 idsuministro = ".$idSuministro;
 		mysql_query($consulta);	
 	}
+
+	public function actualizarStockSuministros($idSuministro, $cantidad){
+		conexion::getConexion();
+		$consulta = "UPDATE `suministro`
+					 SET cantidad = 'cantidad' - $cantidad
+					 WHERE 
+						 idsuministro = ".$idSuministro;
+		mysql_query($consulta);
+	}
 }
 ?>

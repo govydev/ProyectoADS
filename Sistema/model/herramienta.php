@@ -67,5 +67,14 @@ class herramienta{
 						 idherramienta = ".$idHerramienta;
 		mysql_query($consulta);	
 	}
+
+	public function actualizarStockSuministros($idHerramienta, $cantidad){
+		conexion::getConexion();
+		$consulta = "UPDATE `herramienta`
+					 SET cantidad = 'cantidad' - $cantidad
+					 WHERE 
+						 idherramienta = ".$idHerramienta;
+		mysql_query($consulta);
+	}
 }
 ?>

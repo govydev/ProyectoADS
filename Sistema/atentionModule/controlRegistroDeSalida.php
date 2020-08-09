@@ -5,16 +5,22 @@ include_once("formDetalleRegistro.php");
 include_once("../model/solicitud.php");
 include_once("../model/detalleSuministro.php");
 include_once("../model/detalleHerramienta.php");
+include_once("../shared/formMensaje.php");
 
 class controlRegistroDeSalida{
     public function iniciarBusquedaRegistro($busqueda){
         $objRegistro =  new solicitud;
-        $objForm = new formRegistro;
         $registros = $objRegistro->getRegistroByDNI($busqueda);
-        $objForm -> formRegistroShow($registros);
+        if (count($registros)>0) {
+            $objForm = new formRegistro;
+            $objForm -> formRegistroShow($registros);
+        }else{
+            $objMensaje = new formMensaje;
+            $objMensaje -> formMensajeShow("NO EXISTE REGISTROS CON EL DNI INGRESADO","../atentionModule/indexEmitirRegistro.php");
+        }
     }
 
-    public function iniciarDetalleSolicitud($idSolicitud, $datos){
+    public function iniciarDetalleRegistro($idSolicitud, $datos){
         $objDetalleSum = new detalleSuministro;
         $objDetalleHer = new detalleHerramienta;
         $objForm = new formDetalleRegistro;

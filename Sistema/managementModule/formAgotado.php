@@ -39,10 +39,11 @@ class formAgotado{
 <div class="col-xs-12 col-sm-8 col-md-9">
 <div class="full-width bar-info-user">
 <i class="	fa fa-book" aria-hidden="true"></i>
-<div>Listado de Herramientas Agotadas</div>
+<div>Listado de Suministros Agotados</div>
 </div><br>
 <!-- Contenido-->
 <div class="full-width" style="padding: 15px; border: 1px solid #E1E1E1;">
+<?if(count($suministro) > 0){?>
 	<table class="table table-condensed">
 		<thead>
 			<tr>
@@ -53,8 +54,7 @@ class formAgotado{
 			</tr>
 		</thead>
 		<tbody>
-            <?if(count($suministro) > 0){
-                $i=1;
+                <?$i=1;
                 foreach ($suministro as $value) {?>
 				<tr>
 					<td><?= $i?></td>
@@ -62,12 +62,13 @@ class formAgotado{
                     <td><?= $value['detalle'] ?></td>
                     <td><?= $value['diminutivo'] ?></td>
 				</tr>
-            <?}}
-            else{?>
-                <center><label>No se encuentra suministros agotados</label></center>
             <?}?>
 		</tbody>
 	</table>
+	<?}
+	else{?>
+		<center><label>No se encuentra suministros agotados</label></center>
+	<?}?>
 </div><br>
 </div>
 </div><br><br><br>
@@ -78,6 +79,7 @@ class formAgotado{
 </div><br>
 <!-- Contenido-->
 <div class="full-width" style="padding: 15px; border: 1px solid #E1E1E1;">
+	<?if(count($herramienta) > 0){?>
 	<table class="table table-condensed">
 		<thead>
 			<tr>
@@ -87,20 +89,20 @@ class formAgotado{
 			</tr>
 		</thead>
 		<tbody>
-            <?if(count($herramienta) > 0){
-                $i=1;
+                <?$i=1;
                 foreach ($herramienta as $value) {?>
 				<tr>
 					<td><?= $i?></td>
 					<td><?= $value['nombre'] ?></td>
                     <td><?= $value['detalle'] ?></td>
 				</tr>
-            <?}}
-            else{?>
-                <center><label>No se encuentra herramientas agotadas</label></center>
             <?}?>
-		</tbody>
+			</tbody>
 	</table>
+	<?}
+	else{?>
+		<center><label>No se encuentra herramientas agotadas</label></center>
+	<?}?>
 </div>
 </div>
 </div>

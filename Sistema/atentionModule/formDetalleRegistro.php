@@ -53,7 +53,7 @@ class formDetalleRegistro{
 		</div>
 		
      <div class="full-width" style="padding: 15px; border: 1px solid #E1E1E1;">
-	 
+	 <?if(count($detalleSuministro) > 0){?>
 	<table class="table table-condensed">
 		<thead class="thead-light">
 			<tr>
@@ -64,16 +64,21 @@ class formDetalleRegistro{
 			</tr>
 		</thead>
 		<tbody>
-            <?foreach ($detalleSuministro as $fila) {?>
-				<tr>
-                    <td><?= $fila["idDetalle"] ?></td>
-					<td><?= $fila["idSolicitud"] ?></td>
-                    <td><?= $fila["idSuministro"] ?></td>
-                    <td><?= $fila["cantidad"] ?></td>
-				</tr>
-            <?}?>
+			<?$i=1;
+			foreach ($detalleSuministro as $fila) {?>
+			<tr>
+				<td><?= $fila["idDetalle"] ?></td>
+				<td><?= $fila["idSolicitud"] ?></td>
+				<td><?= $fila["idSuministro"] ?></td>
+				<td><?= $fila["cantidad"] ?></td>
+			</tr>
+			<?}?>
 		</tbody>
 	</table>
+	<?}
+            else{?>
+                <center><label>No se encuentra suministros agotados</label></center>
+            <?}?>
 	</div>
      </div>
      <div class="col-md-6">
@@ -82,6 +87,7 @@ class formDetalleRegistro{
 		<div>Listado de Herramientas </div>
 		</div>
 	   <div class="full-width" style="padding: 15px; border: 1px solid #E1E1E1;">
+	<?if(count($detalleHerramienta) > 0){?>
 	<table class="table table-condensed">
 		<thead>
 			<tr>
@@ -92,7 +98,8 @@ class formDetalleRegistro{
 			</tr>
 		</thead>
 		<tbody>
-            <?foreach ($detalleHerramienta as $fila) {?>
+                <?$i=1;
+                foreach ($detalleHerramienta as $fila) {?>
 				<tr>
 					<td><?= $fila["idDetalle"] ?></td>
 					<td><?= $fila["idSolicitud"] ?></td>
@@ -102,6 +109,10 @@ class formDetalleRegistro{
             <?}?>
 		</tbody>
 	</table>
+	<?}
+	else{?>
+		<center><label>No se encuentra suministros agotados</label></center>
+	<?}?>
 </div>
      </div>
 </div>
