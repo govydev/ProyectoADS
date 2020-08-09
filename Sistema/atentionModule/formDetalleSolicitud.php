@@ -48,14 +48,28 @@ class formDetalleSolicitud{
 					<center><input type="submit" id="btnRechazar"  value="Rechazar solicitud" name="btnAccion" class="list-group-item" id="categori-2"></center>
 				</form>
 				</div>
-				<script>
-		document.getElementById('btnAceptar').addEventListener('click', function(){
-		var mensaje;
-		var opcion = confirm("La presente solicitud sera atendida , verifique que todo los datos mostrados esten correctos");
-		if (opcion == true) {
-			mensaje = "Aceptar";
-		} else {
-			mensaje = "Cancelar";
+					<script>
+						function Rechazar() {
+						//Ingresamos un mensaje a mostrar
+						var mensaje=confirm("La presente solicitud sera rechazada");
+						if(mensaje==true){
+							var motivo = prompt("Motivo");
+							if (motivo == ""){
+								alert("el motivo no puede estar vacio");
+									return  false;
+							}else{
+								return true;
+							}
+						}
+						}			
+						function Aceptar() {
+						var mensaje;
+						var opcion = confirm("La presente solicitud sera atendida , verifique que todo los datos mostrados esten correctos");
+						if (opcion == true) {
+							mensaje = "Aceptar";
+						} else {
+							mensaje = "Cancelar";
+						}
 		}
   });
   
