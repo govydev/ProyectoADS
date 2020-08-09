@@ -30,7 +30,7 @@ class controlSolicitudes{
         }
         if(count($herramienta)<1 || count($suministro)<1){
             $objMensaje = new formMensaje;
-            $objMensaje -> formMensajeShow("LOS DATOS NO REGISTRADOS","../atentionModule/indexEmitirSolicitud.php");
+            $objMensaje -> formMensajeShow("LOS DATOS NO ESTAN REGISTRADOS","../atentionModule/indexEmitirSolicitud.php");
         }else{
             $objGestion = new formGenerarSolicitud;
             $objGestion -> formGenerarSolicitudShow($herramienta, $suministro);

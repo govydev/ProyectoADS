@@ -57,7 +57,7 @@ class controlGestionUsuario{
             $objMensaje -> formMensajeShow("EL USUARIO YA EXISTE","../managementModule/indexGestionUsuario.php");
         }
         if(!isset($objMensaje)){
-            header('Location: indexGestionUsuario.php');
+            self::cargarTablas();
         }
     }
 
@@ -72,7 +72,7 @@ class controlGestionUsuario{
             $objMensaje -> formMensajeShow("EL USUARIO YA EXISTE","../managementModule/indexGestionUsuario.php");
         }
         if(!isset($objMensaje)){
-            header('Location: indexGestionUsuario.php');
+            self::cargarTablas();
         }
     }
 
