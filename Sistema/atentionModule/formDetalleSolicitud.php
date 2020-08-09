@@ -39,7 +39,7 @@ class formDetalleSolicitud{
 			</form><br>
 				<div class="col-md-6">
 				<form action="getBotonGSH.php" method="post">
-					<center><input type="submit" value="Aceptar Solicitud" name="btnAccion" class="list-group-item" id="categori-6"></center>
+					<center><input type="submit" value="Aceptar Solicitud" name="btnAccion" onclick="return enviarSolicitud()" class="list-group-item" id="categori-6"></center>
 				</form>
 				</div>
 				<div class="col-md-6">
@@ -69,13 +69,18 @@ class formDetalleSolicitud{
 			</tr>
 		</thead>
 		<tbody>
-            <?foreach ($detalleSuministro as $fila) {?>
+			<?if(count($detalleSuministro) > 0){
+                $i=1;
+                foreach ($detalleSuministro as $fila) {?>
 				<tr>
                     <td><?= $fila["idDetalle"] ?></td>
 					<td><?= $fila["idSolicitud"] ?></td>
                     <td><?= $fila["idSuministro"] ?></td>
                     <td><?= $fila["cantidad"] ?></td>
 				</tr>
+            <?}?>
+			else{?>
+                <center><label>No se encuentra suministros agotados</label></center>
             <?}?>
 		</tbody>
 	</table>
@@ -87,6 +92,7 @@ class formDetalleSolicitud{
 		<div>Listado de Herramientas </div>
 		</div>
 	   <div class="full-width" style="padding: 15px; border: 1px solid #E1E1E1;">
+	<?if(count($detalleHerramienta) > 0){?>
 	<table class="table table-condensed">
 		<thead>
 			<tr>
@@ -97,7 +103,8 @@ class formDetalleSolicitud{
 			</tr>
 		</thead>
 		<tbody>
-            <?foreach ($detalleHerramienta as $fila) {?>
+			<?$i=1;
+                foreach ($detalleHerramienta as $fila) {?>
 				<tr>
 					<td><?= $fila["idDetalle"] ?></td>
 					<td><?= $fila["idSolicitud"] ?></td>
@@ -107,6 +114,10 @@ class formDetalleSolicitud{
             <?}?>
 		</tbody>
 	</table>
+	<?}
+	else{?>
+		<center><label>No se encuentra suministros agotados</label></center>
+	<?}?>
 </div>
      </div>
 </div>
