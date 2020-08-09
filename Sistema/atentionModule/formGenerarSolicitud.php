@@ -14,7 +14,7 @@ class formGenerarSolicitud{
             var listSuministro = [];
             var listHerramienta = [];
 
-            function alertAgregarCantidad(tipo, cantidad,id){
+            function alertAgregarCantidad(tipo, cantidad, id){
                 do{
                     cant = prompt("Ingrese Cantidad de " + tipo +":");
                     if(!isNaN(cant) && cant!=""){
@@ -38,7 +38,17 @@ class formGenerarSolicitud{
                 }while(cant != null);
             }
 
-            function 
+            function enviarSolicitud(){
+                var arrayHerramienta =JSON.stringify(this.listHerramienta);
+                var arraySuministro = JSON.stringify(this.listSuministro);
+                document.getElementById("listSuministro").value = arraySuministro;
+                document.getElementById("listHerramienta").value = arrayHerramienta;
+                if(confirm("Se va a generar las solicitud.Desea continuar?")){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
             
             </script>
         </head>
@@ -51,9 +61,9 @@ class formGenerarSolicitud{
                     <ul class="list-unstyled full-width menu-mobile-c">
                         <li>
                         <form action="getBotonES.php" method="post">
-                            <input type="hidden" name="listSuministro">
-                            <input type="hidden" name="listHerramienta">
-                            <center><input type="submit" value="Crear Solicitud" name="btnAccion" class="btn btn-primary btn-sm" id="categori-2"></center>
+                            <input type="hidden" name="listSuministro" id="listSuministro">
+                            <input type="hidden" name="listHerramienta" id="listHerramienta">
+                            <center><input type="submit" value="Crear Solicitud" name="btnAccion" class="btn btn-primary btn-sm" id="categori-4" onclick="return enviarSolicitud()" ></center>
                         </form>
                         
                         </li>
