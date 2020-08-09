@@ -47,8 +47,7 @@ switch ($_POST['btnAccion']) {
                 $i++;
             }
         }
-        print_r($arrayS);
-        /*if(count($herramientas)>0){
+        if(count($herramientas)>0){
             $i=1;
             foreach ($herramientas as $value) {
                 if($_POST['textEliminarH'.$i] == 1){
@@ -56,8 +55,7 @@ switch ($_POST['btnAccion']) {
                 }
                 $i++;
             }
-        }*/
-        print_r($arrayH);
+        }
         $objSolicitud -> iniciarSolicitud($arrayH, $arrayS);
         break;
 }

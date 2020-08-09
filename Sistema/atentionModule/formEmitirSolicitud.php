@@ -151,7 +151,7 @@ class formEmitirSolicitud{
 						<button type="button" onclick="cambiarCantidad('S', <?=$i?>, <?= $value[3] ?>)"> Modificar</button>
 					</td>
 					<td>
-					<input type="text" name="textEliminarS<?=$i?>" id="itemS<?=$i?>"  value="1">
+					<input type="hidden" name="textEliminarS<?=$i?>" id="itemS<?=$i?>"  value="1">
 					<input type="submit" name="btnAccion" value="Eliminar" onclick="return eliminarItemS(<?=$i?>,'Seguro que desea realizar la eliminacion de suministro?')">
 					</td>
 				</tr>
@@ -192,10 +192,8 @@ class formEmitirSolicitud{
 					<button type="button" onclick="cambiarCantidad('H', <?=$i?>, <?= $value[3] ?>)"> Modificar</button>
 					</td>
 					<td>
-					<form action="getBotonGS.php" method="post">
-					<input type="hidden" name="textEliminarH<?=$i?>" value="1">
+					<input type="hidden" name="textEliminarH<?=$i?>" id="itemH<?=$i?>" value="1">
 					<input type="submit" value="Eliminar" name="btnAccion" onclick="return eliminarItemH(<?=$i?>,'Seguro que desea realizar la eliminacion de herramienta?')">
-					</form>
 					</td>
 				</tr>
             <?}?> 
