@@ -13,7 +13,14 @@ class formGenerarSolicitud{
             <script>
             var listSuministro = [];
             var listHerramienta = [];
-
+            <?session_start();
+            $listSuministro = $_SESSION['suministros'];
+            $listHerramienta = $_SESSION['herramientas'];
+            if ($listSuministro != null || $listHerramienta != null) {?>
+                listSuministro = <?=$listSuministro?>;
+                listHerramienta = <?=$listHerramienta?>;
+            <?}?>
+            console.log(listSuministro);
             function alertAgregarCantidad(tipo, cantidad, id){
                 do{
                     cant = prompt("Ingrese Cantidad de " + tipo +":");
@@ -22,10 +29,12 @@ class formGenerarSolicitud{
                             switch (tipo) {
                                 case 'suministro':
                                     listSuministro.push([id,cant]);
+                                    console.log(listSuministro);
                                     break;
                                             
                                 case 'herramienta':
                                     listHerramienta.push([id,cant]);
+                                    console.log(listSuministro);
                                     break;
                                 } 
                             break;
@@ -39,15 +48,20 @@ class formGenerarSolicitud{
             }
 
             function enviarSolicitud(){
+                if (this.listHerramienta.length == 0 && this.listSuministro.length == 0) {
+                    alert("No a seleccionado algun elemento.");
+                    return false;
+                }
                 var arrayHerramienta =JSON.stringify(this.listHerramienta);
                 var arraySuministro = JSON.stringify(this.listSuministro);
                 document.getElementById("listSuministro").value = arraySuministro;
                 document.getElementById("listHerramienta").value = arrayHerramienta;
-                if(confirm("Se va a generar las solicitud.Desea continuar?")){
+                if(confirm("Se va a generar la solicitud. \nDesea continuar?") == true){
                     return true;
                 }else{
                     return false;
                 }
+                
             }
             
             </script>
