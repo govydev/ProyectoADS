@@ -38,51 +38,39 @@ class formDetalleSolicitud{
 				<center><input type="submit" value="Visualizar solicitud" name="btnOpcion" class="list-group-item" id="categori-8"></center>
 			</form><br>
 				<div class="col-md-6">
-				<form action="getBotonGSH.php" method="post">
-					<center><input type="submit" id="btnAceptar"  value="Aceptar Solicitud" name="btnAccion" onclick="return enviarSolicitud()" class="list-group-item" id="categori-6"></center>
+				<form>
+				<input type="button" onclick="Aceptar()" class="list-group-item" id="categori-6" value="Aceptar solicitud" />
 				</form>
 				</div>
 				<div class="col-md-6">
-				<form  method="post">
-					<center><input type="submit" id="btnRechazar"  value="Rechazar solicitud" name="btnAccion" class="list-group-item" id="categori-2"></center>
+				<form>
+				<input type="button" onclick="Rechazar()" class="list-group-item" id="categori-2" value="Rechazar solicitud" />
 				</form>
 				</div>
-				<script>
-		document.getElementById('btnAceptar').addEventListener('click', function(){
-		var mensaje;
-		var opcion = confirm("La presente solicitud sera atendida , verifique que todo los datos mostrados esten correctos");
-		if (opcion == true) {
-			mensaje = "Aceptar";
-		} else {
-			mensaje = "Cancelar";
+					<script>
+						function Rechazar() {
+						//Ingresamos un mensaje a mostrar
+						var mensaje=confirm("La presente solicitud sera rechazada");
+						if(mensaje==true){
+							var motivo = prompt("Motivo");
+							if (motivo == ""){
+								alert("el motivo no puede estar vacio");
+									return  false;
+							}else{
+								return true;
+							}
+						}
+						}			
+						function Aceptar() {
+						var mensaje;
+						var opcion = confirm("La presente solicitud sera atendida , verifique que todo los datos mostrados esten correctos");
+						if (opcion == true) {
+							mensaje = "Aceptar";
+						} else {
+							mensaje = "Cancelar";
+						}
 		}
-  });
-  
-  document.getElementById('btnRechazar').addEventListener('click', function(){
-	var mensaje;
-		var opcion = confirm("La presente solicitud sera rechazada");
-		if (opcion == true) {
-			mensaje = "siguiente";
-			if(mensaje = "siguiente"){
-					while(true){	
-					let cantM = prompt('ingrese cantidad a modificar :');
-					if(cantM == ""){
-						alert('El motivo no puede estar vacio');
-						break;
-					}else if(cantM== 'fin'){
-						break;
-					}
-					break;
-				}
-				
-			}
-
-		} else {
-			mensaje = "Cancelar";
-		}
-			
-  });		
-				</script>
+		</script>
         </div>
 		</div>
 <section class="full-width section">
