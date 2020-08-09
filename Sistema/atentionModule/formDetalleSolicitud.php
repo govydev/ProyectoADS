@@ -18,6 +18,40 @@ class formDetalleSolicitud{
 					return false;
 				}
 			}
+			document.getElementById('btnAceptar').addEventListener('click', function(){
+		var mensaje;
+		var opcion = confirm("La presente solicitud sera atendida , verifique que todo los datos mostrados esten correctos");
+		if (opcion == true) {
+			mensaje = "Aceptar";
+		} else {
+			mensaje = "Cancelar";
+		}
+  });
+  
+  document.getElementById('btnRechazar').addEventListener('click', function(){
+	var mensaje;
+		var opcion = confirm("La presente solicitud sera rechazada");
+		if (opcion == true) {
+			mensaje = "siguiente";
+			if(mensaje = "siguiente"){
+					while(true){	
+					let cantM = prompt('ingrese cantidad a modificar :');
+					if(cantM == ""){
+						alert('El motivo no puede estar vacio');
+						break;
+					}else if(cantM== 'fin'){
+						break;
+					}
+					break;
+				}
+				
+			}
+
+		} else {
+			mensaje = "Cancelar";
+		}
+			
+  });
 		</script>
 	</head>
     <body>
@@ -39,12 +73,12 @@ class formDetalleSolicitud{
 			</form><br>
 				<div class="col-md-6">
 				<form action="getBotonGSH.php" method="post">
-					<center><input type="submit" value="Aceptar Solicitud" name="btnAccion" onclick="return enviarSolicitud()" class="list-group-item" id="categori-6"></center>
+					<center><input type="submit" id="btnAceptar"  value="Aceptar Solicitud" name="btnAccion" onclick="return enviarSolicitud()" class="list-group-item" id="categori-6"></center>
 				</form>
 				</div>
 				<div class="col-md-6">
 				<form action="getBotonGSH.php" method="post">
-					<center><input type="submit" value="Rechazar solicitud" name="btnAccion" class="list-group-item" id="categori-2"></center>
+					<center><input type="submit" id="btnRechazar"  value="Rechazar solicitud" name="btnAccion" class="list-group-item" id="categori-2"></center>
 				</form>
 				</div>
         </div>
