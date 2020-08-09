@@ -14,7 +14,7 @@ class controlRegistroDeSalida{
         $objForm -> formRegistroShow($registros);
     }
 
-    public function iniciarDetalleSolicitud($idSolicitud, $datos){
+    public function iniciarDetalleRegistro($idSolicitud, $datos){
         $objDetalleSum = new detalleSuministro;
         $objDetalleHer = new detalleHerramienta;
         $objForm = new formDetalleRegistro;
