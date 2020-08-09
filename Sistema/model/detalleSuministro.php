@@ -13,6 +13,13 @@ class detalleSuministro{
 		return ($fila);
     }
 
+	public function crearDetalleSolicitud($id, $suministros){
+		conexion::getconexion();
+		foreach ($suministros as $value) {
+			$consulta = "INSERT INTO `detallesuministros`(`idSolicitud`, `idSuministro`, `cantidad`) VALUES ($id,$value[0],$value[1])";
+			mysql_query($consulta);
+		}
+	}	
 
 }
 ?>

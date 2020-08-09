@@ -42,5 +42,16 @@ class solicitud{
 		return ($fila);
 	}
 
+	public function crearSolicitud($nombre, $dni){
+		date_default_timezone_set('America/Lima');
+		$hoy = getdate();
+		$fecha = $hoy['year']."-".$hoy['mon']."-".$hoy['mday'];
+		conexion::getConexion();
+		$consulta = "INSERT INTO `solicitudes`(`nombre`, `dni`, `fecha`, `estado`) VALUES ('$nombre','$dni','$fecha',1)";
+		mysql_query($consulta) or mysql_error();
+		$respuesta =  mysql_insert_id();
+		return $respuesta;
+	}
+
 }
 ?>

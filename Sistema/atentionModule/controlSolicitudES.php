@@ -2,7 +2,11 @@
 
 include_once("../model/herramienta.php");
 include_once("../model/suministro.php");
+include_once("../model/detalleHerramienta.php");
+include_once("../model/detalleSuministro.php");
+include_once("../model/solicitud.php");
 include_once("formGenerarSolicitud.php");
+include_once("formEmitirSolicitud.php");
 include_once("../shared/formMensaje.php");
 
 class controlSolicitudES{
@@ -41,18 +45,44 @@ class controlSolicitudES{
         $objEmitirS = new formEmitirSolicitud;
         $objHerramienta =  new herramienta;
         $objSuministro =  new suministro;
-        $listHerramienta = array();
-        $listSuministro = array();
-        for ($i=0; $i < count($herramienta); $i++) { 
-            //$listHerramienta = $objHerramienta -> getHerramientaById($herramienta[$i][0]); $herramienta[$i][1]);
+        $i=0;
+        if(count($herramienta)>0){
+            foreach ($herramienta as $key => $value) {
+                $list = $objHerramienta -> getHerramientaById($value[0])[0];
+                array_unshift($list,$value[1]);
+                $listHerramienta[$i] = $list;
+                $i++;
+            }
+            $i = 0;
         }
-        for ($i=0; $i < count($suministro); $i++) { 
-
-            //  $listSuministro = $objSuministro -> getSuministroById($suministro[$i][0]); $suministro[$i][1]);
+        if(count($suministro)>0){
+            foreach ($suministro as $key => $value) {
+                $list = $objSuministro -> getSuministroById($value[0])[0];
+                array_unshift($list,$value[1]);
+                $listSuministro[$i] = $list;
+                $i++;
+            }
         }
-        print_r($objSuministro -> getSuministroById($suministro[0][0]));
         $objEmitirS -> formEmitirSolicitudShow($listHerramienta, $listSuministro);
     }
+
+    public function emitirSolicitud($nombre, $dni, $suministros, $herramientas){
+        $objSolicitud = new solicitud;
+        $objSuministro = new detalleSuministro;
+        $objHerramienta = new detalleHerramienta;
+        $id = $objSolicitud -> crearSolicitud($nombre, $dni);
+        if(count($suministros)>0){
+            $objSuministro -> crearDetalleSolicitud($id, $suministros);
+        }
+        if(count($herramientas)>0){
+            $objHerramienta -> crearDetalleHerramienta($id, $herramientas);
+        }
+        session_start();
+        $_SESSION['suministros'] = null;
+        $_SESSION['herramientas'] = null;
+        self::cargarSH();
+    }
+
 }
 
 ?>

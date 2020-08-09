@@ -13,6 +13,13 @@ class detalleHerramienta{
 		return ($fila);
     }
 
+	public function crearDetalleHerramienta($id, $herramientas){
+		conexion::getconexion();
+		foreach ($herramientas as $value) {
+			$consulta = "INSERT INTO `detalleherramientas`(`idSolicitud`, `idHerramienta`, `cantidad`) VALUES ($id,$value[0],$value[1])";
+			mysql_query($consulta);
+		}
+	}
 
 }
 ?>
