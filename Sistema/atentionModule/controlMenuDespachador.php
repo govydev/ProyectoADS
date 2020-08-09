@@ -9,13 +9,15 @@ class controlMenuDespachador{
     public function iniciarSolicitudes(){
         $objForm = new formListaSolicitud;
         $objGestion = new solicitud;
-        $objForm -> formListaSolicitudShow($objGestion -> obtenerSolicitudTodo());
+        $solicitudes = $objGestion -> obtenerSolicitudTodo();
+        $objForm -> formListaSolicitudShow($solicitudes);
     }
 
     public function iniciarRegistroSalida(){
         $objForm = new formRegistro;
         $objGestion = new solicitud;
-        $objForm -> formRegistroShow($objGestion -> obtenerRegistroSalidaTodo());
+        $registros = $objGestion -> obtenerRegistroSalidaTodo();
+        $objForm -> formRegistroShow($registros);
     }
 
 }

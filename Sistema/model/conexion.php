@@ -4,7 +4,7 @@ class conexion{
 
 	private function conexion()
 	{
-		mysql_connect("localhost","root","12345678");
+		mysql_connect("localhost","root","");
 		mysql_select_db("sistemaADS");
 	}
 	

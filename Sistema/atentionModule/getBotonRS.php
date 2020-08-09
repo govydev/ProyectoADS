@@ -20,7 +20,7 @@ switch ($_POST['btnAccion']) {
             'DNI' => $_POST['DNI']
         );
         $objControl = new controlRegistroDeSalida;
-        $objControl -> iniciarDetalleSolicitud($_POST['idSolicitud'], $solicitud);
+        $objControl -> iniciarDetalleRegistro($_POST['idSolicitud'], $solicitud);
     
 }
 

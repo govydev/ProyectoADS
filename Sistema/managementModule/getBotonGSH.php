@@ -11,7 +11,7 @@ switch ($_POST['btnAccion']) {
             $objGestion -> iniciarBusqueda($_POST['txtBusqueda'], $_POST['ddTipo']); 
         }else{
             $objGestion = new controlGestionSH;
-            $objGestion -> cargarTablasSH();
+            $objGestion ->cargarTablasSH();
         }
         break;
     

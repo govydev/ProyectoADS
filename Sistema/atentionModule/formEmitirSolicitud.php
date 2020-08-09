@@ -1,7 +1,7 @@
 <?
 
-class forEmitirSolicitud{
-    public function forEmitirSolicitudShow(){?>
+class formEmitirSolicitud{
+    public function formEmitirSolicitudShow($herramienta, $suministro){?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -47,17 +47,20 @@ class forEmitirSolicitud{
 			<tr>
 				<th>N°</th>
 				<th>Nombre</th>
-                <th>Detalle</th>
+                <th>Cantidad</th>
                 <th>Unidad</th>
 			</tr>
 		</thead>
 		<tbody>
+            <?$i = 0;?>
+            <?foreach ($suministro as $value) {?>
 				<tr>
-					<td><?= $i?></td>
-					<td><?= $value['nombre'] ?></td>
-                    <td><?= $value['detalle'] ?></td>
-                    <td><?= $value['diminutivo'] ?></td>
-				</tr>  
+					<td><?= ++$i?></td>
+					<td><?= $value[0][1] ?></td>
+                    <td><?= $value[0][2] ?></td>
+                    <td><?= $value[0][3] ?></td>
+				</tr>
+            <?}?>  
 		</tbody>
 	</table>
 </div><br>
@@ -75,16 +78,18 @@ class forEmitirSolicitud{
 			<tr>
 				<th>N°</th>
 				<th>Nombre</th>
-                <th>Detalle</th>
+                <th>Cantidad</th>
 			</tr>
 		</thead>
 		<tbody>
-            
+            <?$i = 0;?>
+            <?foreach ($herramienta as $value) {?>
 				<tr>
-					<td><?= $i?></td>
-					<td><?= $value['nombre'] ?></td>
-                    <td><?= $value['detalle'] ?></td>
+					<td><?= ++$i?></td>
+					<td><?= $value[0][1]?></td>
+                    <td><?= $value[0][2]?></td>
 				</tr>
+            <?}?> 
 		</tbody>
 	</table>
 </div>
