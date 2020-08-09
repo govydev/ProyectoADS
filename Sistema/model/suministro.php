@@ -32,7 +32,7 @@ class suministro{
 			$fila[$i] = mysql_fetch_array($resultado);
 		return ($fila);
 	}
-
+	
 	public function actualizarSuministro($suministro){
 		conexion::getConexion();
 		$consulta = "UPDATE `suministro`

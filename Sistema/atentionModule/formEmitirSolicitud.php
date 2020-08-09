@@ -1,7 +1,7 @@
 <?
 
-class forEmitirSolicitud{
-    public function forEmitirSolicitudShow(){?>
+class formEmitirSolicitud{
+    public function formEmitirSolicitudShow($herramienta, $suministro){?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -27,7 +27,7 @@ class forEmitirSolicitud{
 <div class="full-width list-group" style="border-radius: 0;">
 <div class="list-group-item text-center">
     <div class="list-group-item text-center">
-        <a href="indexGestionSH.php" class="list-group-item" id="categori-4">
+        <a href="indexEmitirSolicitud.php" class="list-group-item" id="categori-4">
         <i class="fa fa-mail-reply-all" aria-hidden="true"></i> Volver atrás</a>
     </div>
 </div>
@@ -47,17 +47,20 @@ class forEmitirSolicitud{
 			<tr>
 				<th>N°</th>
 				<th>Nombre</th>
-                <th>Detalle</th>
+                <th>Cantidad</th>
                 <th>Unidad</th>
 			</tr>
 		</thead>
 		<tbody>
+            <?$i = 0;?>
+            <?foreach ($suministro as $value) {?>
 				<tr>
-					<td><?= $i?></td>
-					<td><?= $value['nombre'] ?></td>
-                    <td><?= $value['detalle'] ?></td>
-                    <td><?= $value['diminutivo'] ?></td>
-				</tr>  
+					<td><?= ++$i?></td>
+					<td><?= $value[0][1] ?></td>
+                    <td><?= $value[0][2] ?></td>
+                    <td><?= $value[0][3] ?></td>
+				</tr>
+            <?}?>  
 		</tbody>
 	</table>
 </div><br>
@@ -75,16 +78,18 @@ class forEmitirSolicitud{
 			<tr>
 				<th>N°</th>
 				<th>Nombre</th>
-                <th>Detalle</th>
+                <th>Cantidad</th>
 			</tr>
 		</thead>
 		<tbody>
-            
+            <?$i = 0;?>
+            <?foreach ($herramienta as $value) {?>
 				<tr>
-					<td><?= $i?></td>
-					<td><?= $value['nombre'] ?></td>
-                    <td><?= $value['detalle'] ?></td>
+					<td><?= ++$i?></td>
+					<td><?= $value[0][1]?></td>
+                    <td><?= $value[0][2]?></td>
 				</tr>
+            <?}?> 
 		</tbody>
 	</table>
 </div>

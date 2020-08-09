@@ -17,7 +17,9 @@ switch ($_POST['btnAccion']) {
 
     case 'Crear Solicitud':
         $objSolicitud = new controlSolicitudes;
-        $objSolicitud  -> iniciarSolicitud();
+        $arrayS = json_decode($_POST["listSuministro"]);
+        $arrayH = json_decode($_POST["listHerramienta"]);
+        $objSolicitud  -> iniciarSolicitud($arrayH, $arrayS);
         break;
     
 }

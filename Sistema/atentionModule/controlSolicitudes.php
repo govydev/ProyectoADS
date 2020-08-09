@@ -37,9 +37,21 @@ class controlSolicitudes{
         }
     }
 
-    public function iniciarSolicitud(){
-        $objEmitirS = new forEmitirSolicitud;
-        $objEmitirS -> forEmitirSolicitudShow();
+    public function iniciarSolicitud($herramienta, $suministro){
+        $objEmitirS = new formEmitirSolicitud;
+        $objHerramienta =  new herramienta;
+        $objSuministro =  new suministro;
+        $listHerramienta = array();
+        $listSuministro = array();
+        for ($i=0; $i < count($herramienta); $i++) { 
+            //$listHerramienta = $objHerramienta -> getHerramientaById($herramienta[$i][0]); $herramienta[$i][1]);
+        }
+        for ($i=0; $i < count($suministro); $i++) { 
+
+            //  $listSuministro = $objSuministro -> getSuministroById($suministro[$i][0]); $suministro[$i][1]);
+        }
+        print_r($objSuministro -> getSuministroById($suministro[0][0]));
+        $objEmitirS -> formEmitirSolicitudShow($listHerramienta, $listSuministro);
     }
 }
 
