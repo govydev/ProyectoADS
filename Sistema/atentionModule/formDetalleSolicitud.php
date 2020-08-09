@@ -18,7 +18,37 @@ class formDetalleSolicitud{
 					return false;
 				}
 			}
-			document.getElementById('btnAceptar').addEventListener('click', function(){
+	</script>
+	</head>
+    <body>
+<div class="full-width NavBar">
+	<div class="full-width text-semi-bold NavBar-logo">SMF</div>	
+</div>
+<div class="container">
+		<div class="col-xs-8 col-sm-2 col-md-4">
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4">
+        <div class="registration-form">
+        </div>
+		<center>
+					<label>Nombre : <?=$datos['nombre']?></label><br>
+					<label>DNI : <?=$datos['DNI']?></label>
+			</center>
+		<form  method="POST">
+				<center><input type="submit" value="Visualizar solicitud" name="btnOpcion" class="list-group-item" id="categori-8"></center>
+			</form><br>
+				<div class="col-md-6">
+				<form action="getBotonGSH.php" method="post">
+					<center><input type="submit" id="btnAceptar"  value="Aceptar Solicitud" name="btnAccion" onclick="return enviarSolicitud()" class="list-group-item" id="categori-6"></center>
+				</form>
+				</div>
+				<div class="col-md-6">
+				<form  method="post">
+					<center><input type="submit" id="btnRechazar"  value="Rechazar solicitud" name="btnAccion" class="list-group-item" id="categori-2"></center>
+				</form>
+				</div>
+				<script>
+		document.getElementById('btnAceptar').addEventListener('click', function(){
 		var mensaje;
 		var opcion = confirm("La presente solicitud sera atendida , verifique que todo los datos mostrados esten correctos");
 		if (opcion == true) {
@@ -51,36 +81,8 @@ class formDetalleSolicitud{
 			mensaje = "Cancelar";
 		}
 			
-  });
-		</script>
-	</head>
-    <body>
-<div class="full-width NavBar">
-	<div class="full-width text-semi-bold NavBar-logo">SMF</div>	
-</div>
-<div class="container">
-		<div class="col-xs-8 col-sm-2 col-md-4">
-        </div>
-        <div class="col-xs-12 col-sm-4 col-md-4">
-        <div class="registration-form">
-        </div>
-		<center>
-					<label>Nombre : <?=$datos['nombre']?></label><br>
-					<label>DNI : <?=$datos['DNI']?></label>
-			</center>
-		<form action="getBotonMD.php" method="POST">
-				<center><input type="submit" value="Visualizar solicitud" name="btnOpcion" class="list-group-item" id="categori-8"></center>
-			</form><br>
-				<div class="col-md-6">
-				<form action="getBotonGSH.php" method="post">
-					<center><input type="submit" id="btnAceptar"  value="Aceptar Solicitud" name="btnAccion" onclick="return enviarSolicitud()" class="list-group-item" id="categori-6"></center>
-				</form>
-				</div>
-				<div class="col-md-6">
-				<form action="getBotonGSH.php" method="post">
-					<center><input type="submit" id="btnRechazar"  value="Rechazar solicitud" name="btnAccion" class="list-group-item" id="categori-2"></center>
-				</form>
-				</div>
+  });		
+				</script>
         </div>
 		</div>
 <section class="full-width section">
