@@ -62,13 +62,13 @@ class controlGestionSH{
     public function enviarHerramientaEditada($herramienta){
         $objHerramienta =  new herramienta;
         $objHerramienta -> actualizarHerramienta($herramienta);
-        header('Location: indexGestionSH.php');
+        self::cargarTablasSH();
     }
 
     public function enviarSuministroEditada($suministro){
         $objSuministro =  new suministro;
         $objSuministro -> actualizarSuministro($suministro);
-        header('Location: indexGestionSH.php');
+        self::cargarTablasSH();
     }
 
     public function iniciarNuevoSuministro(){
@@ -81,13 +81,13 @@ class controlGestionSH{
     public function enviarNuevoSuministro($suministro){
         $objSuministro =  new suministro;
         $objSuministro -> crearSuministro($suministro);
-        header('Location: indexGestionSH.php');
+        self::cargarTablasSH();
     }
 
     public function enviarNuevaHerramienta($herramienta){
         $objHerramienta =  new herramienta;
         $objHerramienta -> crearHerramienta($herramienta);
-        header('Location: indexGestionSH.php');
+        self::cargarTablasSH();
     }
 
     public function iniciarSHAgotado(){
@@ -103,13 +103,13 @@ class controlGestionSH{
     public function iniciarEliminarSuministro($idSuministro){
         $objSuministro =  new suministro;
         $objSuministro -> eliminarSuministro($idSuministro);
-        header('Location: indexGestionSH.php');
+        self::cargarTablasSH();
     }
 
     public function iniciarEliminarHerramienta($idHerramienta){
         $objHerramienta =  new herramienta;
         $objHerramienta -> eliminarHerramienta($idHerramienta);
-        header('Location: indexGestionSH.php');
+        self::cargarTablasSH();
     }
 
 }

@@ -32,19 +32,19 @@ class formNuevoUsuario{
         <br>
         <form action="getUsuarioGU.php" method="POST">
                 <div class="form-group">
-                    <input class="form-control item" type="text" name="txtNombre"  id="" placeholder="Nombre" required>
+                    <input class="form-control item" type="text" name="txtNombre"  id="" placeholder="Nombre">
                 </div>
                 <div class="form-group">
-                    <input class="form-control item" type="text" name="txtApPaterno" id="" placeholder="A.Paterno" required>
+                    <input class="form-control item" type="text" name="txtApPaterno" id="" placeholder="A.Paterno">
                 </div>
                 <div class="form-group">
-                    <input class="form-control item" type="text" name="txtApMaterno"  id="" placeholder="A.Materno" required>
+                    <input class="form-control item" type="text" name="txtApMaterno"  id="" placeholder="A.Materno" >
                 </div>
                 <div class="form-group">
-                    <input class="form-control item" type="text" name="txtUsuario"  id="" placeholder="Usuario" required>
+                    <input class="form-control item" type="text" name="txtUsuario"  id="" placeholder="Usuario" >
                 </div>
                 <div class="form-group">
-                    <input class="form-control item" type="password" name="txtPassword"  id="" placeholder="Contraseña" required>
+                    <input class="form-control item" type="password" name="txtPassword"  id="" placeholder="Contraseña" >
                 </div>
                 <div class="form-group">
                     <label for="">Roles :</label><br>
