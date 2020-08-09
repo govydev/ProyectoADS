@@ -2,7 +2,7 @@
 
 class formRegistro{
 
-    public function formRegistroShow(){?>
+    public function formRegistroShow($registros){?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -27,8 +27,9 @@ class formRegistro{
 </div>
 <div class="full-width list-group" style="border-radius: 0;">
 <div class="list-group-item text-center">
-<button type="submit" class="btn btn-info" >
-<i class="	fa fa-mail-reply" aria-hidden="true"></i> ir a menu Despachador</button>
+<form action="indexEmitirRegistro.php" method="post">
+<center><input type="submit" value="Ir a menu despachador" name="btnLogin" class="list-group-item" id="categori-8"></center>
+</form>
 </div>
 </div>
 </div>
@@ -38,30 +39,43 @@ class formRegistro{
 <i class="	fa fa-book" aria-hidden="true"></i>
 <div> Registros de Salida</div>
 </div><br>
+<form action="getBotonRS.php" method="POST">
+            <input type="text" name="txtBusqueda">
+            <input type="submit" value="Buscar" name="btnAccion" class="btn btn-default"><br><br>
+        </form>
 <!-- Contenido-->
 <div class="full-width" style="padding: 15px; border: 1px solid #E1E1E1;">
 	<table class="table table-condensed">
 		<thead>
 			<tr>
 				<th>Nº</th>
-				<th>Registro de Salida</th>
-                <th>Fecha de Emision </th>
-				<th>Fecha de atencion</th>
+				<th>Nombre</th>
+                <th>DNI</th>
+				<th>motivo</th>
+				<th>Fecha de Emision</th>
+                <th>estado</th>
                 <th>Detalles</th>
 			</tr>
 		</thead>
 		<tbody>
-				<tr>
-					<td></td>
-					<td></td>
-                    <td></td>
-                    <td></td>
+				<?foreach ($registros as $fila) {?>
+					<tr>
+					<td><?= $fila[0] ?></td>
+					<td><?= $fila[1] ?></td>
+                    <td><?= $fila[2] ?></td>
+					<td><?= $fila[3] ?></td>
+					<td><?= $fila[4] ?></td>
+                    <td><?= $fila[5] ?></td>
 					<td>
-					<form action="get" method="post">
-					<center><button type="submit" class="btn btn-info">Nuevo</button></center>
-					</form>
+						<form action="getBotonRS.php" method="post">
+							<input type="hidden" name="idSolicitud" value='<?=$fila[0]?>'>
+							<input type="hidden" name="nombre" value='<?=$fila[1]?>'>
+							<input type="hidden" name="DNI" value='<?=$fila[2]?>'>
+							<input class="btn btn-info" type="submit" value="Ver" name="btnAccion">
+						</form>
 					</td>
-				</tr>
+				</tr><?}?>
+				
 		</tbody>
 	</table>
 </div>

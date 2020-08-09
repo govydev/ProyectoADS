@@ -13,8 +13,15 @@ class formGenerarSolicitud{
             <script>
             var listSuministro = [];
             var listHerramienta = [];
-
-            function alertAgregarCantidad(tipo, cantidad,id){
+            <?session_start();
+            $listSuministro = $_SESSION['suministros'];
+            $listHerramienta = $_SESSION['herramientas'];
+            if ($listSuministro != null || $listHerramienta != null) {?>
+                listSuministro = <?=$listSuministro?>;
+                listHerramienta = <?=$listHerramienta?>;
+            <?}?>
+            console.log(listSuministro);
+            function alertAgregarCantidad(tipo, cantidad, id){
                 do{
                     cant = prompt("Ingrese Cantidad de " + tipo +":");
                     if(!isNaN(cant) && cant!=""){
@@ -22,10 +29,12 @@ class formGenerarSolicitud{
                             switch (tipo) {
                                 case 'suministro':
                                     listSuministro.push([id,cant]);
+                                    console.log(listSuministro);
                                     break;
                                             
                                 case 'herramienta':
                                     listHerramienta.push([id,cant]);
+                                    console.log(listSuministro);
                                     break;
                                 } 
                             break;
@@ -38,7 +47,22 @@ class formGenerarSolicitud{
                 }while(cant != null);
             }
 
-            function 
+            function enviarSolicitud(){
+                if (this.listHerramienta.length == 0 && this.listSuministro.length == 0) {
+                    alert("No a seleccionado algun elemento.");
+                    return false;
+                }
+                var arrayHerramienta =JSON.stringify(this.listHerramienta);
+                var arraySuministro = JSON.stringify(this.listSuministro);
+                document.getElementById("listSuministro").value = arraySuministro;
+                document.getElementById("listHerramienta").value = arrayHerramienta;
+                if(confirm("Se va a generar la solicitud. \nDesea continuar?") == true){
+                    return true;
+                }else{
+                    return false;
+                }
+                
+            }
             
             </script>
         </head>
@@ -51,9 +75,9 @@ class formGenerarSolicitud{
                     <ul class="list-unstyled full-width menu-mobile-c">
                         <li>
                         <form action="getBotonES.php" method="post">
-                            <input type="hidden" name="listSuministro">
-                            <input type="hidden" name="listHerramienta">
-                            <center><input type="submit" value="Crear Solicitud" name="btnAccion" class="btn btn-primary btn-sm" id="categori-2"></center>
+                            <input type="hidden" name="listSuministro" id="listSuministro">
+                            <input type="hidden" name="listHerramienta" id="listHerramienta">
+                            <center><input type="submit" value="Crear Solicitud" name="btnAccion" class="btn btn-primary btn-sm" id="categori-4" onclick="return enviarSolicitud()" ></center>
                         </form>
                         
                         </li>

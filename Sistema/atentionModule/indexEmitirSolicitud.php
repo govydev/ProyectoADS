@@ -1,8 +1,8 @@
 <?php
 
-include_once("controlSolicitudes.php");
+include_once("controlSolicitudES.php");
 
-$objGestion = new controlSolicitudes;
+$objGestion = new controlSolicitudES;
 $objGestion -> cargarSH();
 
 ?>

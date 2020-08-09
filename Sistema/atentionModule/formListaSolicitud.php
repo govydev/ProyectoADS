@@ -26,6 +26,11 @@ class formListaSolicitud{
 <p class="full-width"><small> <b>Despachador :<br>Marcos Antonio</b> </h1></small></p><br><br>
 </div>
 <div class="full-width list-group" style="border-radius: 0;">
+<div class="list-group-item text-center">
+<form action="indexEmitirRegistro.php" method="post">
+<center><input type="submit" value="Ir a menu despachador" name="btnLogin" class="list-group-item" id="categori-8"></center>
+</form>
+</div>
 </div>
 </div>
 </div>
@@ -34,10 +39,10 @@ class formListaSolicitud{
 <i class="	fa fa-book" aria-hidden="true"></i>
 <div>Listado de Solicitudes </div>
 </div><br>
-<form action="get.php" method="POST"> 
-<label> Solicitud :</label> <input type="text" name="" required >
-<i aria-hidden="true"></i><button>Buscar</button></a>
-</form>
+<form action="getBotonLS.php" method="POST">
+            <input type="text" name="txtBusqueda">
+            <input type="submit" value="Buscar" name="btnAccion" class="btn btn-default"><br><br>
+        </form>
 <!-- Contenido-->
 <div class="full-width" style="padding: 15px; border: 1px solid #E1E1E1;">
 	<table class="table table-condensed">
@@ -46,25 +51,29 @@ class formListaSolicitud{
 				<th>Nº</th>
 				<th>Nombre</th>
                 <th>DNI</th>
-				<th>motivo</th>
 				<th>Fecha de Emision</th>
                 <th>estado</th>
 				<th colspan="1">Detalles</th>
 			</tr>
 		</thead>
 		<tbody>
-				<tr>
+				
 				<?foreach ($solicitudes as $fila) {?>
+					<tr>
 					<td><?= $fila[0] ?></td>
 					<td><?= $fila[1] ?></td>
                     <td><?= $fila[2] ?></td>
-					<td><?= $fila[3] ?></td>
 					<td><?= $fila[4] ?></td>
                     <td><?= $fila[5] ?></td>
 					<td>
-						<button class="btn btn-info" type="submit">Ver</button>
-					</td><?}?>
-				</tr>
+					<form action="getBotonLS.php" method="post">
+						<input type="hidden" name="idSolicitud" value='<?=$fila[0]?>'>
+						<input type="hidden" name="nombre" value='<?=$fila[1]?>'>
+						<input type="hidden" name="DNI" value='<?=$fila[2]?>'>
+						<input class="btn btn-info" type="submit" value="Ver" name="btnAccion">
+					</form>
+				</td>
+				</tr><?}?>
 		</tbody>
 	</table>
 </div>
