@@ -42,7 +42,7 @@ class controlGestionUsuario{
         $objUsuario = new Usuario;
         $objModificarUsuario =  new  formModificarUsuario;
         $listaRol = $objRoles -> getAllRolesDetails($usuario);
-        $user = $objUsuario -> getUser($usuario,"login");
+        $user = $objUsuario -> getUserData($usuario);
         $objModificarUsuario ->  formModificarUsuarioShow($user,$listaRol);
     }
 
@@ -52,13 +52,14 @@ class controlGestionUsuario{
         if($respuesta == 1){
             $objRoles = new detalleUsuario;
             $objRoles -> crearDetalleUsuario($roles, $user["login"]);
+            self::cargarTablas();
         }else{
             $objMensaje = new formMensaje;
             $objMensaje -> formMensajeShow("EL USUARIO YA EXISTE","../managementModule/indexGestionUsuario.php");
         }
-        if(!isset($objMensaje)){
-            header('Location: indexGestionUsuario.php');
-        }
+        /*if(!isset($objMensaje)){
+            self::cargarTablas();
+        }*/
     }
 
     public function actualizarUsuarioRoles($user, $roles){
@@ -67,13 +68,15 @@ class controlGestionUsuario{
         if($respuesta == 1){
             $objRoles = new detalleUsuario;
             $objRoles -> actualizarDetalleUsuario($roles, $user["login"]);
+            //modificacion
+            self::cargarTablas();
         }else {
             $objMensaje = new formMensaje;
             $objMensaje -> formMensajeShow("EL USUARIO YA EXISTE","../managementModule/indexGestionUsuario.php");
         }
-        if(!isset($objMensaje)){
-            header('Location: indexGestionUsuario.php');
-        }
+        /*if(!isset($objMensaje)){
+            self::cargarTablas();
+        }*/
     }
 
 }

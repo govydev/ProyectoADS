@@ -32,7 +32,7 @@ class suministro{
 			$fila[$i] = mysql_fetch_array($resultado);
 		return ($fila);
 	}
-
+	
 	public function actualizarSuministro($suministro){
 		conexion::getConexion();
 		$consulta = "UPDATE `suministro`
@@ -66,6 +66,15 @@ class suministro{
 					 WHERE 
 						 idsuministro = ".$idSuministro;
 		mysql_query($consulta);	
+	}
+
+	public function actualizarStockSuministros($idSuministro, $cantidad){
+		conexion::getConexion();
+		$consulta = "UPDATE `suministro`
+					 SET cantidad = 'cantidad' - $cantidad
+					 WHERE 
+						 idsuministro = ".$idSuministro;
+		mysql_query($consulta);
 	}
 }
 ?>

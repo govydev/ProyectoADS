@@ -17,7 +17,7 @@ if(strlen($_POST['txtNombre']) < 4 || $_POST['nbCantidad'] < 0){
     $objGestion = new controlGestionSH;
     switch ($_POST['btnAccion']) {
         case 'Editar':
-            $objGestion -> enviarSuministroEditada($suministro);
+            $objGestion -> enviarSuministroEditado($suministro);
             break;
         
         case 'Registrar':

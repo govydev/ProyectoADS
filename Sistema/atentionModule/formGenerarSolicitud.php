@@ -2,16 +2,71 @@
 
 class formGenerarSolicitud{
     public function formGenerarSolicitudShow($herramienta, $suministro){?>
-        <!DOCTYPE html>
-        <html lang="es">
-            <head>
-                <title>Generar Solicitud</title>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-                <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-                <link rel="stylesheet" href="../style/Css/main.css">
-            </head>
-            <body>
+    <!DOCTYPE html>
+    <html lang="es">
+        <head>
+            <title>Generar Solicitud</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+            <link rel="stylesheet" href="../style/Css/main.css">
+            <script>
+            var listSuministro = [];
+            var listHerramienta = [];
+            <?session_start();
+            $listSuministro = $_SESSION['suministros'];
+            $listHerramienta = $_SESSION['herramientas'];
+            if ($listSuministro != null || $listHerramienta != null) {?>
+                listSuministro = <?=$listSuministro?>;
+                listHerramienta = <?=$listHerramienta?>;
+            <?}?>
+            console.log(listSuministro);
+            function alertAgregarCantidad(tipo, cantidad, id){
+                do{
+                    cant = prompt("Ingrese Cantidad de " + tipo +":");
+                    if(!isNaN(cant) && cant!=""){
+                        if(cant <= cantidad && cant != null){
+                            switch (tipo) {
+                                case 'suministro':
+                                    listSuministro.push([id,cant]);
+                                    console.log(listSuministro);
+                                    break;
+                                            
+                                case 'herramienta':
+                                    listHerramienta.push([id,cant]);
+                                    console.log(listSuministro);
+                                    break;
+                                } 
+                            break;
+                        }else if(cant >= cantidad){
+                            alert("La cantidad ingresada supera a al stock disponible");
+                        }
+                        cant == null;
+                        
+                    }
+                }while(cant != null);
+            }
+
+            function enviarSolicitud(){
+                if (this.listHerramienta.length == 0 && this.listSuministro.length == 0) {
+                    alert("No a seleccionado algun elemento.");
+                    return false;
+                }
+                var arrayHerramienta =JSON.stringify(this.listHerramienta);
+                var arraySuministro = JSON.stringify(this.listSuministro);
+                document.getElementById("listSuministro").value = arraySuministro;
+                document.getElementById("listHerramienta").value = arrayHerramienta;
+                if(confirm("Se va a generar la solicitud. \nDesea continuar?") == true){
+                    return true;
+                }else{
+                    return false;
+                }
+                
+            }
+            
+            </script>
+        </head>
+        <body>
         <div class="full-width NavBar">
             <div class="full-width text-semi-bold NavBar-logo">SMF</div>	
         </div>
@@ -20,7 +75,9 @@ class formGenerarSolicitud{
                     <ul class="list-unstyled full-width menu-mobile-c">
                         <li>
                         <form action="getBotonES.php" method="post">
-                            <center><input type="submit" value="Crear Solicitud" name="btnAccion" class="btn btn-primary btn-sm" id="categori-2"></center>
+                            <input type="hidden" name="listSuministro" id="listSuministro">
+                            <input type="hidden" name="listHerramienta" id="listHerramienta">
+                            <center><input type="submit" value="Crear Solicitud" name="btnAccion" class="btn btn-primary btn-sm" id="categori-4" onclick="return enviarSolicitud()" ></center>
                         </form>
                         
                         </li>
@@ -70,9 +127,8 @@ class formGenerarSolicitud{
                             <td><?= $fila["diminutivo"] ?></td>
                             <td><?= $fila["detalle"] ?></td>
                             <td>
-                            <form action="getBotonES.php" method="POST"> 
-                                <center><button class="btn btn-default" type="submit" onclick="return confirm('Ingrese cantidad del Suministro Adquirir:')">Añadir</submit></center>
-                            </form>
+                            <button type="button" onclick="alertAgregarCantidad('suministro', <?= $fila['cantidad']?>, <?= $fila['idsuministro']?>)">
+                            Añadir</button>
                             </td>
                         </tr>
                     <?}?>
@@ -101,9 +157,8 @@ class formGenerarSolicitud{
                             <td><?= $fila["cantidad"] ?></td>
                             <td><?= $fila["detalle"] ?></td>
                             <td>
-                            <form action="get.php" method="POST"> 
-                                <center><button type="submit" class="btn btn-default" onclick="return confirm('Ingrese cantidad de la Herramienta Adquirir:')">Añadir</submit></center>
-                            </form>
+                            <button type="button" onclick="alertAgregarCantidad('herramienta', <?= $fila['cantidad']?>, <?= $fila['idherramienta']?>)">
+                            Añadir</button>
                             </td>
                         </tr>
                     <?}?>
@@ -134,9 +189,9 @@ class formGenerarSolicitud{
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
             <script>window.jQuery || document.write('<script src="../js/jquery-1.11.2.min.js"><\/script>')</script>
-            <script src="../../js/bootstrap.min.js"></script>
-            <script src="../..//js/jquery.mCustomScrollbar.concat.min.js"></script>
-            <script src="../../js/main.js"></script>
+            <script src="../style/js/bootstrap.min.js"></script>
+            <script src="../style/js/jquery.mCustomScrollbar.concat.min.js"></script>
+            <script src="../style/js/main.js"></script>
         </body>
         </html>
 <?}
