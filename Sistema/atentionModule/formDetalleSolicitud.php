@@ -24,26 +24,31 @@ class formDetalleSolicitud{
 <div class="full-width NavBar">
 	<div class="full-width text-semi-bold NavBar-logo">SMF</div>	
 </div>
-<nav class=" full-width NavBar-Nav">
-			<div class="full-width NavBar-Nav-bg hidden-md hidden-lg show-menu-mobile"></div>
-			<ul class="list-unstyled full-width menu-mobile-c">
-				<li>
+<div class="container">
+		<div class="col-xs-8 col-sm-2 col-md-4">
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4">
+        <div class="registration-form">
+        </div>
+		<center>
+					<label>Nombre : <?=$datos['nombre']?></label><br>
+					<label>DNI : <?=$datos['DNI']?></label>
+			</center>
+		<form action="getBotonMD.php" method="POST">
+				<center><input type="submit" value="Visualizar solicitud" name="btnOpcion" class="list-group-item" id="categori-8"></center>
+			</form><br>
+				<div class="col-md-6">
 				<form action="getBotonGSH.php" method="post">
-					<center><input type="submit" value="Elementos Agotado" name="btnAccion" class="btn btn-primary btn-sm" id="categori-2"></center>
+					<center><input type="submit" value="Aceptar Solicitud" name="btnAccion" class="list-group-item" id="categori-6"></center>
 				</form>
-				
-				</li>
-			</ul>
-</nav>
-<br>
-<form action="getBotonMD.php" method="POST">
-	<center><input type="submit" value="Visualizar solicitud" name="btnOpcion" class="list-group-item" id="categori-8"></center>
-</form>
-<br>
-<center>
-		<label>Nombre : <?=$datos['nombre']?></label><br>
-        <label>DNI : <?=$datos['DNI']?></label>
-</center>
+				</div>
+				<div class="col-md-6">
+				<form action="getBotonGSH.php" method="post">
+					<center><input type="submit" value="Rechazar solicitud" name="btnAccion" class="list-group-item" id="categori-2"></center>
+				</form>
+				</div>
+        </div>
+		</div>
 <section class="full-width section">
 <div class="modal-body row">
      <div class="col-md-6">
@@ -134,5 +139,6 @@ class formDetalleSolicitud{
 </html>
     <?}
 }
+
 
 ?>

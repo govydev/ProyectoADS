@@ -10,8 +10,8 @@ switch ($_POST['btnAccion']) {
             $objSolicitud = new controlSolicitudES;
             $objSolicitud  -> iniciarBusqueda($_POST['txtBusqueda'], $_POST['ddTipo']); 
         }else{
-            $objMensaje = new formMensaje;
-            $objMensaje -> formMensajeShow("LOS DATOS NO DEBEN SER NULOS","../atentionModule/indexEmitirSolicitud.php");
+            $objSolicitud = new controlSolicitudes;
+            $objSolicitud -> cargarSH();
         }
         break;
 
