@@ -16,7 +16,9 @@ class controlGestionSH{
         $objHerramienta =  new herramienta;
         $objSuministro =  new suministro;
         $objGestion = new formGestionSH;
-        $objGestion -> formGestionSHShow($objHerramienta->getAllHerramienta(), $objSuministro->getAllSuministro());
+        $suministros =$objSuministro->getAllSuministro();
+        $herramientas =$objHerramienta->getAllHerramienta();
+        $objGestion -> formGestionSHShow($herramientas, $suministros);
     }
 
     public function iniciarBusqueda($busqueda, $tipo){

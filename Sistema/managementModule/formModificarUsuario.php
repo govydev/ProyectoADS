@@ -33,19 +33,19 @@ class formModificarUsuario{
         <form action="getUsuarioGU.php" method="POST">
             <?foreach($user as $value){?>
                 <div class="form-group">
-                    <input class="form-control item" type="text" name="txtNombre" id="" placeholder="Nombre" value="<?=$value["nombre"]?>" required>
+                    <input class="form-control item" type="text" name="txtNombre" id="" placeholder="Nombre" value="<?=$value["nombre"]?>">
                 </div>
                 <div class="form-group">
-                    <input class="form-control item" type="text" name="txtApPaterno"  id="" placeholder="A.Paterno" value="<?=$value["appaterno"]?>" required>
+                    <input class="form-control item" type="text" name="txtApPaterno"  id="" placeholder="A.Paterno" value="<?=$value["appaterno"]?>">
                 </div>
                 <div class="form-group">
-                    <input class="form-control item" type="text" name="txtApMaterno" id="" placeholder="A.Materno" value="<?=$value["apmaterno"]?>" required>
+                    <input class="form-control item" type="text" name="txtApMaterno" id="" placeholder="A.Materno" value="<?=$value["apmaterno"]?>">
                 </div>
                 <div class="form-group">
                     <input class="form-control item" type="text" name="txtUsuario"  id="" placeholder="Usuario" value="<?=$value["login"]?>" readonly="readonly">
                 </div>
                 <div class="form-group">
-                    <input class="form-control item" type="password" name="txtPassword"  id="" placeholder="Contraseña" value="<?=$value["password"]?>" required>
+                    <input class="form-control item" type="password" name="txtPassword"  id="" placeholder="Contraseña" value="<?=$value["password"]?>">
                 </div>
                 <div class="form-group">
                     <label for="">Roles :</label><br>

@@ -21,7 +21,7 @@ switch($_POST['btnAccion']){
             $campo = $_POST['ddBusqueda'];
             $objControl -> iniciarBusquedaUsuario($usuario,$campo);
         }else{
-            $objMensaje -> formMensajeShow("LOS DATOS ENVIADOS NO SON CORRECTOS, VUELVA A INTENTAR","../managementModule/indexGestionUsuario.php");
+            $objControl -> cargarTablas();
         }
         break;
 
