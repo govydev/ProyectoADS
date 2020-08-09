@@ -2,6 +2,9 @@
 
 class formDetalleSolicitud{
     public function formDetalleSolicitudShow($detalleSuministro, $detalleHerramienta, $datos){?>
+	<?php session_start();
+		$_SESSION['arrayS'] = $detalleSuministro;
+		$_SESSION['arrayH'] = $detalleHerramienta;?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -38,29 +41,32 @@ class formDetalleSolicitud{
 				<center><input type="submit" value="Visualizar solicitud" name="btnAccion" class="list-group-item" id="categori-8"></center>
 			</form><br>
 				<div class="col-md-6">
-				<form action="getBotonLS.php" method="post">
-				<input type="hidden" name="prueba" value="hola">
-					<center><input type="submit" id="btnAceptar"  value="Aceptar Solicitud" name="btnAccion" onclick="return enviarSolicitud()" class="list-group-item" id="categori-6"></center>
+				<form action="getBotonLS.php" method="POST">
+				<input type="submit" onclick="return Aceptar()" name="btnAccion" class="list-group-item" id="categori-6" value="Aceptar solicitud" />
 				</form>
 				</div>
 				<div class="col-md-6">
-				<form action="getBotonLS.php" method="post">
-					<center><input type="submit" id="btnRechazar"  value="Rechazar solicitud" name="btnAccion" class="list-group-item" id="categori-2"></center>
+				<form action="getBotonLS.php" method="POST">
+				
+				<input type="submit" onclick="return Rechazar()" name="btnAccion" class="list-group-item" id="categori-2" value="Rechazar solicitud" />
 				</form>
 				</div>
-					<script>
+				<script>
 						function Rechazar() {
 						//Ingresamos un mensaje a mostrar
-						var mensaje=confirm("La presente solicitud sera rechazada");
+						var mensaje = confirm("La presente solicitud sera rechazada");
 						if(mensaje==true){
 							var motivo = prompt("Motivo");
 							if (motivo == ""){
-								alert("el motivo no puede estar vacio");
+								var opt =alert("el motivo no puede estar vacio");
 									return  false;
 							}else{
-								return true;
+								return false;
 							}
+						}else{
+							return false;
 						}
+
 						}			
 						function Aceptar() {
 						var mensaje;
@@ -69,32 +75,10 @@ class formDetalleSolicitud{
 							mensaje = "Aceptar";
 						} else {
 							mensaje = "Cancelar";
+							return false
 						}
 		}
-  });
-  
-  document.getElementById('btnRechazar').addEventListener('click', function(){
-	var mensaje;
-		var opcion = confirm("La presente solicitud sera rechazada");
-		if (opcion == true) {
-			mensaje = "siguiente";
-			if(mensaje = "siguiente"){
-					while(true){	
-					let cantM = prompt('ingrese Motivo de rechazo:');
-					if(cantM == ""){
-						alert('El motivo no puede estar vacio');
-						break;
-					}else if(cantM== 'fin'){
-						break;
-					}
-					break;
-				}
-			}
-		} else {
-			mensaje = "Cancelar";
-		}
-  });		
-				</script>
+		</script>
         </div>
 		</div>
 <section class="full-width section">

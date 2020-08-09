@@ -32,11 +32,11 @@ class formMenuDespachador{
         </div>
 
             <form action="getBotonMD.php" method="POST" class="list-group-item text-center">
-                <center><input type="submit" value="Visualizar solicitud" name="btnOpcion" class="list-group-item" id="categori-4"></center>
+                <center><input type="submit" value="Visualizar solicitudes" name="btnOpcion" class="list-group-item" id="categori-4"></center>
             </form>
 
             <form action="getBotonMD.php" method="POST" class="list-group-item text-center">
-                <center><input type="submit" value="Registros de salida" name="btnOpcion" class="list-group-item" id="categori-4"></center>
+                <center><input type="submit" value="Solicitudes Procesadas" name="btnOpcion" class="list-group-item" id="categori-4"></center>
             </form>
 
             <form action="../securityModule/getUsuario.php" method="POST" class="list-group-item text-center">

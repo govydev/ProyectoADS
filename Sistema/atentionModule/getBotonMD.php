@@ -5,11 +5,11 @@ include_once("controlMenuDespachador.php");
 $objMenu = new controlMenuDespachador;
 
 switch ($_POST["btnOpcion"]) {
-    case 'Visualizar solicitud':
+    case 'Visualizar solicitudes':
         $objMenu -> iniciarSolicitudes();
         break;
     
-    case 'Registros de salida':
+    case 'Solicitudes Procesadas':
         $objMenu -> iniciarRegistroSalida();
         break;
 }

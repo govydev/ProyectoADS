@@ -38,18 +38,22 @@ class controlSolicitudER{
         $objSuministro = new suministro;
         $objherramienta = new herramienta;
         $objsolicitud = new solicitud;
-        $objForm = new formMenuDespachador;
-        foreach($suministros as $fila){
-            $idSuministro = $fila['idSuministro'];
-            $cantidad = $fila['cantidad'];
-            $objSuministro -> actualizarStockSuministros($idSuministro, $cantidad);
+        if($suministros){
+            foreach($suministros as $fila){
+                $idSuministro = $fila['idSuministro'];
+                $cantidad = $fila['cantidad'];
+                $objSuministro -> actualizarStockSuministros($idSuministro, $cantidad);
+            }
         }
-        foreach($herramientas as $fil){
-            $idHerramienta = $fil['cantidadSum'];
-            $cantidadH = $fil['cantidadHer'];
-            $objherramienta -> actualizarStockHerramieta($idHerramienta, $cantidadH);
+        if($herramientas){
+            foreach($herramientas as $fil){
+                $idHerramienta = $fil['idHerramienta'];
+                $cantidadH = $fil['cantidad'];
+                $objherramienta -> actualizarStockHerramieta($idHerramienta, $cantidadH);
+            }
         }
         $objsolicitud -> actualizarEstadoSolicitud($idsolicitud);
+        $objForm = new formMenuDespachador;
         $objForm -> formMenuDespachador();
         //$objherramienta -> actualizarStockHerramieta($idHerramienta, $cantidad);
         
