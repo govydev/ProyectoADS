@@ -3,6 +3,19 @@
 include_once("controlSolicitudER.php");
 include_once("formEmitirSolicitud.php");
 
+/*$suministros = array();
+$herramientas = array();
+$i=1;
+while($_POST["idSuministro".$i]){
+    array_push($suministros,array($_POST["idSuministro".$i],$_POST["cantidadSum".$i]));
+    $i++;
+}
+$j=1;
+while($_POST["idHerramienta".$j]){
+    array_push($herramientas,array($_POST["idHerramienta".$j],$_POST["cantidadHer".$j]));
+    $j++;
+}*/
+
 switch ($_POST['btnAccion']) {
     case 'Buscar':
         if((trim($_POST['txtBusqueda']))){
@@ -22,6 +35,11 @@ switch ($_POST['btnAccion']) {
         $objControl = new controlSolicitudER;
         $objControl -> iniciarDetalleSolicitud($_POST['idSolicitud'], $solicitud);
     
+    case 'Aceptar Solicitud':
+        print($_POST['prueba']);
+        $objSolicitud = new controlSolicitudER;
+        $objSolicitud -> atenderSolicitud($suministros, $herramientas, $_POST["idSolicitud"]);
+            
 }
 
 ?>

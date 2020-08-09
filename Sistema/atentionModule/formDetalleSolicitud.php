@@ -34,16 +34,17 @@ class formDetalleSolicitud{
 					<label>Nombre : <?=$datos['nombre']?></label><br>
 					<label>DNI : <?=$datos['DNI']?></label>
 			</center>
-		<form  method="POST">
-				<center><input type="submit" value="Visualizar solicitud" name="btnOpcion" class="list-group-item" id="categori-8"></center>
+		<form action="indexEmitirRegistro.php" method="POST">
+				<center><input type="submit" value="Visualizar solicitud" name="btnAccion" class="list-group-item" id="categori-8"></center>
 			</form><br>
 				<div class="col-md-6">
-				<form action="getBotonGSH.php" method="post">
+				<form action="getBotonLS.php" method="post">
+				<input type="hidden" name="prueba" value="hola">
 					<center><input type="submit" id="btnAceptar"  value="Aceptar Solicitud" name="btnAccion" onclick="return enviarSolicitud()" class="list-group-item" id="categori-6"></center>
 				</form>
 				</div>
 				<div class="col-md-6">
-				<form  method="post">
+				<form action="getBotonLS.php" method="post">
 					<center><input type="submit" id="btnRechazar"  value="Rechazar solicitud" name="btnAccion" class="list-group-item" id="categori-2"></center>
 				</form>
 				</div>
@@ -65,7 +66,7 @@ class formDetalleSolicitud{
 			mensaje = "siguiente";
 			if(mensaje = "siguiente"){
 					while(true){	
-					let cantM = prompt('ingrese cantidad a modificar :');
+					let cantM = prompt('ingrese Motivo de rechazo:');
 					if(cantM == ""){
 						alert('El motivo no puede estar vacio');
 						break;
@@ -74,13 +75,10 @@ class formDetalleSolicitud{
 					}
 					break;
 				}
-				
 			}
-
 		} else {
 			mensaje = "Cancelar";
 		}
-			
   });		
 				</script>
         </div>
@@ -92,9 +90,8 @@ class formDetalleSolicitud{
 		<i class="	fa fa-book" aria-hidden="true"></i>
 		<div>Listado de Suministros </div>		
 		</div>
-		
      <div class="full-width" style="padding: 15px; border: 1px solid #E1E1E1;">
-	 
+	<?if(count($detalleSuministro) > 0){?>
 	<table class="table table-condensed">
 		<thead class="thead-light">
 			<tr>
@@ -105,8 +102,7 @@ class formDetalleSolicitud{
 			</tr>
 		</thead>
 		<tbody>
-			<?if(count($detalleSuministro) > 0){
-                $i=1;
+		<?$i = 0;
                 foreach ($detalleSuministro as $fila) {?>
 				<tr>
                     <td><?= $fila["idDetalle"] ?></td>
@@ -115,11 +111,12 @@ class formDetalleSolicitud{
                     <td><?= $fila["cantidad"] ?></td>
 				</tr>
             <?}?>
-			else{?>
-                <center><label>No se encuentra suministros agotados</label></center>
-            <?}?>
 		</tbody>
 	</table>
+	<?}
+	else{?>
+		<center><label>No se encuentra suministros agotados</label></center>
+	<?}?>
 	</div>
      </div>
      <div class="col-md-6">
@@ -139,13 +136,13 @@ class formDetalleSolicitud{
 			</tr>
 		</thead>
 		<tbody>
-			<?$i=1;
-                foreach ($detalleHerramienta as $fila) {?>
+		<?$i = 0;
+                foreach ($detalleHerramienta as $fil) {?>
 				<tr>
-					<td><?= $fila["idDetalle"] ?></td>
-					<td><?= $fila["idSolicitud"] ?></td>
-                    <td><?= $fila["idHerramienta"] ?></td>
-                    <td><?= $fila["cantidad"] ?></td>
+					<td><?= $fil["idDetalle"] ?></td>
+					<td><?= $fil["idSolicitud"] ?></td>
+                    <td><?= $fil["idHerramienta"] ?></td>
+                    <td><?= $fil["cantidad"] ?></td>
 				</tr>
             <?}?>
 		</tbody>
