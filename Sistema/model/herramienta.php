@@ -68,10 +68,10 @@ class herramienta{
 		mysql_query($consulta);	
 	}
 
-	public function actualizarStockSuministros($idHerramienta, $cantidad){
+	public function actualizarStockHerramienta($idHerramienta, $cantidad){
 		conexion::getConexion();
 		$consulta = "UPDATE `herramienta`
-					 SET cantidad = 'cantidad' - $cantidad
+					 SET cantidad = cantidad - $cantidad
 					 WHERE 
 						 idherramienta = ".$idHerramienta;
 		mysql_query($consulta);

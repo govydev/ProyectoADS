@@ -25,19 +25,19 @@ class formDetalleRegistro{
 	<div class="full-width text-semi-bold NavBar-logo">SMF</div>	
 </div>
 <nav class=" full-width NavBar-Nav">
-			<div class="full-width NavBar-Nav-bg hidden-md hidden-lg show-menu-mobile"></div>
-			<ul class="list-unstyled full-width menu-mobile-c">
-				<li>
+	<div class="full-width NavBar-Nav-bg hidden-md hidden-lg show-menu-mobile"></div>
+		<ul class="list-unstyled full-width menu-mobile-c">
+			<li>
 				<form action="getBotonGSH.php" method="post">
 					<center><input type="submit" value="Elementos Agotado" name="btnAccion" class="btn btn-primary btn-sm" id="categori-2"></center>
 				</form>
-				
-				</li>
-			</ul>
+			</li>
+		</ul>
+	</div>
 </nav>
 <br>
-<form action="getBotonMD.php" method="POST">
-	<center><input type="submit" value="Registros de salida" name="btnOpcion" class="list-group-item" id="categori-8"></center>
+<form action="indexEmitirRegistro.php" method="POST">
+	<center><input type="submit" value="Menu Despachador" name="btnOpcion" class="list-group-item" id="categori-8"></center>
 </form>
 <br>
 <center>
@@ -58,18 +58,16 @@ class formDetalleRegistro{
 		<thead class="thead-light">
 			<tr>
 				<th>Detalle</th>
-                <th>Solicitud</th>
                 <th>Suministro</th>
 				<th>Cantidad</th>
 			</tr>
 		</thead>
 		<tbody>
-			<?$i=1;
+			<?$i=0;
 			foreach ($detalleSuministro as $fila) {?>
 			<tr>
-				<td><?= $fila["idDetalle"] ?></td>
-				<td><?= $fila["idSolicitud"] ?></td>
-				<td><?= $fila["idSuministro"] ?></td>
+				<td><?= ++$i ?></td>
+				<td><?= $fila["nombre"] ?></td>
 				<td><?= $fila["cantidad"] ?></td>
 			</tr>
 			<?}?>
@@ -92,18 +90,16 @@ class formDetalleRegistro{
 		<thead>
 			<tr>
 				<th>Detalle</th>
-                <th>Solicitud</th>
-                <th>Suministro</th>
+                <th>Herramienta</th>
 				<th>Cantidad</th>
 			</tr>
 		</thead>
 		<tbody>
-                <?$i=1;
+                <?$i=0;
                 foreach ($detalleHerramienta as $fila) {?>
 				<tr>
-					<td><?= $fila["idDetalle"] ?></td>
-					<td><?= $fila["idSolicitud"] ?></td>
-                    <td><?= $fila["idHerramienta"] ?></td>
+					<td><?= ++$i ?></td>
+                    <td><?= $fila["nombre"] ?></td>
                     <td><?= $fila["cantidad"] ?></td>
 				</tr>
             <?}?>

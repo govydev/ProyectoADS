@@ -29,15 +29,18 @@ switch ($_POST['btnAccion']) {
         session_start();
         $suministros = $_SESSION['arrayS'];
         $herramientas = $_SESSION['arrayH'];
-        if($suministros != null){
-            $idSolicitud = $suministros['idSolicitud'];
-        }else if($herramientas != null){
-            $idSolicitud = $herramientas['idSolicitud'];
-        }
+        $idSolicitud = $_SESSION['idSolicitud'];
         $objSolicitud = new controlSolicitudER;
         $objSolicitud -> atenderSolicitud($suministros, $herramientas, $idSolicitud);
         break;
             
+    case 'Rechazar solicitud':
+        session_start();
+        $objSolicitud = new controlSolicitudER;
+        $motivo = $_POST['txtMotivo'];
+        $idSolicitud = $_SESSION['idSolicitud'];
+        $objSolicitud -> rechazarSolicitud($motivo, $idSolicitud );
+        break;
 }
 
 ?>

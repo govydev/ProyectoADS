@@ -30,20 +30,23 @@ class formMenuDespachador{
         <img src="../style/assets/img/user.png" class="NavBar-Nav-icon" alt="User">
         <p class="full-width"><small> <b>Despachador <br> <?=$_SESSION['usuario']?></b> </h1></small></p><br><br>
         </div>
-
-            <form action="getBotonMD.php" method="POST" class="list-group-item text-center">
+        <div class="list-group-item text-center">
+            <form action="getBotonMD.php" method="POST">
                 <center><input type="submit" value="Visualizar solicitudes" name="btnOpcion" class="list-group-item" id="categori-4"></center>
             </form>
-
-            <form action="getBotonMD.php" method="POST" class="list-group-item text-center">
+        </div>
+        <div class="list-group-item text-center">
+            <form action="getBotonMD.php" method="POST">
                 <center><input type="submit" value="Solicitudes Procesadas" name="btnOpcion" class="list-group-item" id="categori-4"></center>
             </form>
-
-            <form action="../securityModule/getUsuario.php" method="POST" class="list-group-item text-center">
+        </div>
+        <div class="list-group-item text-center">
+            <form action="../securityModule/getUsuario.php" method="POST" >
                 <input type="hidden" value="<?=$_SESSION['usuario']?>" name="txtUsuario">
                 <input type="hidden" value="<?=$_SESSION['clave']?>" name="txtPassword" >
                 <center><input type="submit" value="Ir a menu principal" name="btnLogin" class="list-group-item" id="categori-2"></center>
             </form>
+        </div>
         </div>
         </div>
         </section><br>

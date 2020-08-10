@@ -16,6 +16,7 @@ while($_POST["cantH".$j]){
 
 session_start();
 $objSolicitud = new controlSolicitudES;
+
 switch ($_POST['btnAccion']) {
     case 'Agregar':
         $_SESSION['suministros'] = json_encode($suministros);

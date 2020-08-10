@@ -5,7 +5,8 @@ class detalleSuministro{
 	
 	public function getDetalleSumById($idsolicitud){
         conexion::getConexion();
-		$consulta = "SELECT * FROM detallesuministros WHERE idSolicitud = $idsolicitud";
+		$consulta = "SELECT d.idDetalle, d.idSolicitud, s.nombre, d.cantidad  
+					FROM detallesuministros d, suministro s WHERE  d.idSuministro = s.idsuministro and idSolicitud = $idsolicitud";
 		$resultado = mysql_query($consulta);
 		$num_registros = mysql_num_rows($resultado);
 		for($i = 0; $i < $num_registros; $i++)

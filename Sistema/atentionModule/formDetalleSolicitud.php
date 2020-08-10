@@ -2,9 +2,6 @@
 
 class formDetalleSolicitud{
     public function formDetalleSolicitudShow($detalleSuministro, $detalleHerramienta, $datos){?>
-	<?php session_start();
-		$_SESSION['arrayS'] = $detalleSuministro;
-		$_SESSION['arrayH'] = $detalleHerramienta;?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -38,16 +35,16 @@ class formDetalleSolicitud{
 					<label>DNI : <?=$datos['DNI']?></label>
 			</center>
 		<form action="indexEmitirRegistro.php" method="POST">
-				<center><input type="submit" value="Visualizar solicitud" name="btnAccion" class="list-group-item" id="categori-8"></center>
+				<center><input type="submit" value="Menu Despachador" name="btnAccion" class="list-group-item" id="categori-8"></center>
 			</form><br>
 				<div class="col-md-6">
 				<form action="getBotonLS.php" method="POST">
-				<input type="submit" onclick="return Aceptar()" name="btnAccion" class="list-group-item" id="categori-6" value="Aceptar solicitud" />
+				<input type="submit" onclick="return Aceptar()" name="btnAccion" class="list-group-item" id="categori-6" value="Aceptar Solicitud" />
 				</form>
 				</div>
 				<div class="col-md-6">
 				<form action="getBotonLS.php" method="POST">
-				
+				<input type="hidden" name="txtMotivo" id="motivo">
 				<input type="submit" onclick="return Rechazar()" name="btnAccion" class="list-group-item" id="categori-2" value="Rechazar solicitud" />
 				</form>
 				</div>
@@ -60,8 +57,11 @@ class formDetalleSolicitud{
 							if (motivo == ""){
 								var opt =alert("el motivo no puede estar vacio");
 									return  false;
-							}else{
+							}else if(motivo == null){
 								return false;
+							}else{
+								document.getElementById('motivo').value = motivo;
+								return true;
 							}
 						}else{
 							return false;
@@ -94,7 +94,6 @@ class formDetalleSolicitud{
 		<thead class="thead-light">
 			<tr>
 				<th>Detalle</th>
-                <th>Solicitud</th>
                 <th>Suministro</th>
 				<th>Cantidad</th>
 			</tr>
@@ -103,9 +102,8 @@ class formDetalleSolicitud{
 		<?$i = 0;
                 foreach ($detalleSuministro as $fila) {?>
 				<tr>
-                    <td><?= $fila["idDetalle"] ?></td>
-					<td><?= $fila["idSolicitud"] ?></td>
-                    <td><?= $fila["idSuministro"] ?></td>
+                    <td><?= ++$i ?></td>
+                    <td><?= $fila["nombre"] ?></td>
                     <td><?= $fila["cantidad"] ?></td>
 				</tr>
             <?}?>
@@ -128,8 +126,7 @@ class formDetalleSolicitud{
 		<thead>
 			<tr>
 				<th>Detalle</th>
-                <th>Solicitud</th>
-                <th>Suministro</th>
+                <th>Herramienta</th>
 				<th>Cantidad</th>
 			</tr>
 		</thead>
@@ -137,9 +134,8 @@ class formDetalleSolicitud{
 		<?$i = 0;
                 foreach ($detalleHerramienta as $fil) {?>
 				<tr>
-					<td><?= $fil["idDetalle"] ?></td>
-					<td><?= $fil["idSolicitud"] ?></td>
-                    <td><?= $fil["idHerramienta"] ?></td>
+					<td><?= ++$i ?></td>
+                    <td><?= $fil["nombre"] ?></td>
                     <td><?= $fil["cantidad"] ?></td>
 				</tr>
             <?}?>
