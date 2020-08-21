@@ -31,6 +31,10 @@ class controlSolicitudER{
         $objForm = new formDetalleSolicitud;
         $detalleSuministro = $objDetalleSum  -> getDetalleSumById($idSolicitud);
         $detalleHerramienta = $objDetalleHer  -> getDetalleHerById($idSolicitud);
+        session_start();
+		$_SESSION['arrayS'] = $detalleSuministro;
+        $_SESSION['arrayH'] = $detalleHerramienta;
+        $_SESSION['idSolicitud'] = $idSolicitud;
         $objForm -> formDetalleSolicitudShow($detalleSuministro, $detalleHerramienta, $datos);
     }
 
@@ -38,6 +42,7 @@ class controlSolicitudER{
         $objSuministro = new suministro;
         $objherramienta = new herramienta;
         $objsolicitud = new solicitud;
+        $objForm = new formMenuDespachador;
         if($suministros){
             foreach($suministros as $fila){
                 $idSuministro = $fila['idSuministro'];
@@ -49,14 +54,18 @@ class controlSolicitudER{
             foreach($herramientas as $fil){
                 $idHerramienta = $fil['idHerramienta'];
                 $cantidadH = $fil['cantidad'];
-                $objherramienta -> actualizarStockHerramieta($idHerramienta, $cantidadH);
+                $objherramienta -> actualizarStockHerramienta($idHerramienta, $cantidadH);
             }
         }
         $objsolicitud -> actualizarEstadoSolicitud($idsolicitud);
+        $objForm -> formMenuDespachadorShow();
+    }
+
+    public function rechazarSolicitud($motivo, $idSolicitud){
+        $objSolicitud = new solicitud;
         $objForm = new formMenuDespachador;
-        $objForm -> formMenuDespachador();
-        //$objherramienta -> actualizarStockHerramieta($idHerramienta, $cantidad);
-        
+        $objSolicitud -> actualizarMotivoSolicitud($motivo, $idSolicitud);
+        $objForm -> formMenuDespachadorShow();
     }
 
 }

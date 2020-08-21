@@ -5,7 +5,8 @@ class detalleHerramienta{
 	
 	public function getDetalleHerById($idsolicitud){
         conexion::getConexion();
-		$consulta = "SELECT * FROM detalleherramientas WHERE idSolicitud = $idsolicitud";
+		$consulta = "SELECT d.idDetalle, d.idSolicitud, h.nombre, d.cantidad 
+					FROM detalleherramientas d, herramienta h WHERE d.idHerramienta =  h.idherramienta and d.idSolicitud = $idsolicitud";
 		$resultado = mysql_query($consulta);
 		$num_registros = mysql_num_rows($resultado);
 		for($i = 0; $i < $num_registros; $i++)

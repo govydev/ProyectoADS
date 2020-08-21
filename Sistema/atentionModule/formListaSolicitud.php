@@ -40,11 +40,12 @@ class formListaSolicitud{
 <div>Listado de Solicitudes </div>
 </div><br>
 <form action="getBotonLS.php" method="POST">
-            <input type="text" name="txtBusqueda">
+            <input type="number" name="txtBusqueda" placeholder="Codigo de Solicitud" min="0">
             <input type="submit" value="Buscar" name="btnAccion" class="btn btn-default"><br><br>
         </form>
 <!-- Contenido-->
 <div class="full-width" style="padding: 15px; border: 1px solid #E1E1E1;">
+	<?if(count($solicitudes)>0){?>
 	<table class="table table-condensed">
 		<thead>
 			<tr>
@@ -57,7 +58,6 @@ class formListaSolicitud{
 			</tr>
 		</thead>
 		<tbody>
-				
 				<?foreach ($solicitudes as $fila) {?>
 					<tr>
 					<td><?= $fila[0] ?></td>
@@ -76,6 +76,9 @@ class formListaSolicitud{
 				</tr><?}?>
 		</tbody>
 	</table>
+	<?}else{
+		echo "<center><label>No se encuentran solicitudes pendientes</label></center>";
+	}?>
 </div>
 </div>
 </div>

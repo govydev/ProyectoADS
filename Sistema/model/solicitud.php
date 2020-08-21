@@ -44,7 +44,7 @@ class solicitud{
 
 	public function actualizarEstadoSolicitud($idSolicitud){
 		conexion::getConexion();
-		$consulta = "UPDATE `solicitud`
+		$consulta = "UPDATE `solicitudes`
 					 SET estado = 2
 					 WHERE 
 						 idsolicitud = ".$idSolicitud;
@@ -62,5 +62,14 @@ class solicitud{
 		return $respuesta;
 	}
 
+	public function actualizarMotivoSolicitud($motivo, $idSolicitud){
+		conexion::getConexion();
+		$consulta = "UPDATE `solicitudes`
+					 SET motivo = '$motivo',
+					 	 estado = 0	
+					 WHERE 
+						 idsolicitud = ".$idSolicitud;
+		mysql_query($consulta);
+	}
 }
 ?>

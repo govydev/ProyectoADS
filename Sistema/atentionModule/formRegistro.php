@@ -40,7 +40,7 @@ class formRegistro{
 <div> Registros de Salida</div>
 </div><br>
 <form action="getBotonRS.php" method="POST">
-            <input type="text" name="txtBusqueda">
+            <input type="number" name="txtBusqueda" min="0" placeholder="Ingrese DNI">
             <input type="submit" value="Buscar" name="btnAccion" class="btn btn-default"><br><br>
         </form>
 <!-- Contenido-->
@@ -51,21 +51,27 @@ class formRegistro{
 				<th>Nº</th>
 				<th>Nombre</th>
                 <th>DNI</th>
-				<th>motivo</th>
 				<th>Fecha de Emision</th>
-                <th>estado</th>
+                <th>Estado</th>
                 <th>Detalles</th>
 			</tr>
 		</thead>
 		<tbody>
+			<?$i = 0;?>
 				<?foreach ($registros as $fila) {?>
 					<tr>
-					<td><?= $fila[0] ?></td>
+					<td><?= ++$i ?></td>
 					<td><?= $fila[1] ?></td>
                     <td><?= $fila[2] ?></td>
-					<td><?= $fila[3] ?></td>
 					<td><?= $fila[4] ?></td>
-                    <td><?= $fila[5] ?></td>
+					<td>
+					<?if($fila[5] == 0){
+						echo"<label style='color: red'>Rechazado</label>";
+					}?>
+					<?if($fila[5] == 2){
+						echo"<label style='color: green'>Aprobado</label>";
+					}?>
+					</td>
 					<td>
 						<form action="getBotonRS.php" method="post">
 							<input type="hidden" name="idSolicitud" value='<?=$fila[0]?>'>
